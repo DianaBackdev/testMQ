@@ -1,0 +1,676 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="utf-8"/>
+    <title>Dashboard | Admin & Dashboard Template</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta content="Premium Multipurpose Admin & Dashboard Template" name="description"/>
+    <meta content="Themesdesign" name="author"/>
+    <!-- App favicon -->
+    <link rel="shortcut icon" href="../assets/images/favicon.ico">
+
+    <!-- plugin css -->
+    <link href="../assets/libs/admin-resources/jquery.vectormap/jquery-jvectormap-1.2.2.css" rel="stylesheet"
+          type="text/css"/>
+
+    <!-- Bootstrap Css -->
+    <link href="../assets/css/bootstrap.min.css" id="bootstrap-style" rel="stylesheet" type="text/css"/>
+    <!-- Icons Css -->
+    <link href="../assets/css/icons.min.css" rel="stylesheet" type="text/css"/>
+    <!-- App Css-->
+    <link href="../assets/css/app.min.css" id="app-style" rel="stylesheet" type="text/css"/>
+
+    <style>
+        .email-rightbar {
+            width: 636px;
+            float: left;
+            padding: 20px;
+            border-radius: 5px;
+        }
+
+        .error-message {
+            font-size: 0.675rem; /* Немного меньше стандартного размера шрифта */
+            color: #b03a2e; /* Бордовый цвет текста */
+            margin-top: 0.25rem; /* Небольшой отступ сверху */
+            margin-bottom: 0; /* Убираем отступ снизу */
+            display: block; /* Обеспечивает, что сообщение занимает новую строку */
+            padding: 0; /* Убираем внутренние отступы */
+            line-height: 1.2; /* Немного увеличиваем межстрочный интервал для удобства чтения */
+        }
+    </style>
+</head>
+
+
+<body>
+<div id="layout-wrapper">
+    <header id="page-topbar">
+        <div class="navbar-header">
+            <div class="d-flex">
+                <div class="navbar-brand-box">
+                    <a href="/admin/admin" class="logo logo-dark">
+                        <span class="logo-sm">
+                            <img src="../assets/images/logoM&Q-light.png" alt="" height="32">
+                        </span>
+                        <span class="logo-lg">
+                            <img src="../assets/images/test-dark.png" alt="" height="50">
+                        </span>
+                    </a>
+                    <a href="/admin/admin" class="logo logo-light">
+                        <span class="logo-sm">
+                            <img src="../assets/images/logoM&Q-dark.png" alt="" height="32">
+                        </span>
+                        <span class="logo-lg">
+                            <img src="../assets/images/test-light.png" alt="" height="50">
+                        </span>
+                    </a>
+                </div>
+                <button type="button" class="btn btn-sm px-3 font-size-24 header-item waves-effect"
+                        id="vertical-menu-btn">
+                    <i class="mdi mdi-menu"></i>
+                </button>
+            </div>
+
+            <div class="search-wrap" id="search-wrap">
+                <div class="search-bar">
+                    <input class="search-input form-control" placeholder="Search"/>
+                    <a href="#" class="close-search toggle-search" data-target="#search-wrap">
+                        <i class="mdi mdi-close-circle"></i>
+                    </a>
+                </div>
+            </div>
+
+            <div class="d-flex">
+                <div class="dropdown d-none d-lg-inline-block">
+                    <button type="button" class="btn header-item toggle-search noti-icon waves-effect"
+                            data-target="#search-wrap">
+                        <i class="mdi mdi-magnify"></i>
+                    </button>
+                </div>
+
+                <div class="dropdown d-inline-block">
+                    <button type="button" class="btn header-item waves-effect" id="page-header-user-dropdown"
+                            data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <img class="rounded-circle header-profile-user" th:src="@{/admin/admin/image}"
+                             alt="Header Avatar">
+                        <span class="d-none d-xl-inline-block ms-1">Максим</span>
+                        <i class="mdi mdi-chevron-down d-none d-xl-inline-block"></i>
+                    </button>
+                    <div class="dropdown-menu dropdown-menu-end">
+                        <!-- item-->
+                        <a class="dropdown-item" data-bs-toggle="modal" data-bs-target=".bs-example-modal-xl"><i
+                                class="mdi mdi-account-circle-outline font-size-16 align-middle me-1"></i> Профиль</a>
+                        <div class="dropdown-divider"></div>
+                        <a class="dropdown-item text-danger" href="/logout"><i
+                                class="mdi mdi-power font-size-16 align-middle me-1 text-danger"></i> Выход</a>
+                    </div>
+                </div>
+
+                <div class="dropdown d-inline-block">
+                    <button type="button" class="btn header-item noti-icon right-bar-toggle waves-effect">
+                        <i class="mdi mdi-cog-outline font-size-20"></i>
+                    </button>
+                </div>
+
+            </div>
+        </div>
+    </header>
+
+
+    <div class="vertical-menu">
+        <div data-simplebar class="h-100">
+            <div class="user-sidebar text-center">
+                <div class="dropdown">
+                    <div class="user-img">
+                        <img th:src="@{/admin/admin/image}" alt="" class="rounded-circle">
+                        <span class="avatar-online bg-success"></span>
+                    </div>
+                    <div class="user-info">
+                        <h5 class="mt-3 font-size-16 text-white">Максим Войстрик</h5>
+                        <span class="font-size-13 text-white-50">Администратор</span>
+                    </div>
+                </div>
+            </div>
+
+            <div id="sidebar-menu">
+                <ul class="metismenu list-unstyled" id="side-menu">
+                    <li class="menu-title">Меню</li>
+                    <li>
+                        <a href="index-general.html" class="waves-effect">
+                            <i class="dripicons-home"></i>
+                            <span>Аналитика</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="javascript: void(0);" class="has-arrow waves-effect">
+                            <i class="dripicons-cart"></i>
+                            <span>Аккаунты</span>
+                        </a>
+                        <ul class="sub-menu" aria-expanded="false">
+                            <li><a href="/admin/listAllUsers">Пользователи</a></li>
+                            <li><a href="/admin/ecommerce-admins">Aдминистраторы</a></li>
+                            <li><a href="/admin/ecommerce-customer-adding">Добавление пользователя</a></li>
+                        </ul>
+                    </li>
+
+                    <li>
+                        <a href="javascript: void(0);" class="has-arrow waves-effect">
+                            <i class="dripicons-mail"></i>
+                            <span>Поддержка</span>
+                        </a>
+                        <ul class="sub-menu" aria-expanded="false">
+                            <li><a href="email-inbox.html">Заявки</a></li>
+                        </ul>
+                    </li>
+                    <li class="menu-title">Компоненты</li>
+                    <li>
+                        <a href="javascript: void(0);" class="has-arrow waves-effect">
+                            <i class="dripicons-user-group"></i>
+                            <span>Аутентификация</span>
+                        </a>
+                        <ul class="sub-menu" aria-expanded="false">
+                            <!-- <li><a href="/login">Стр. Логин</a></li>-->
+                            <li><a href="/registry">Стр. Регистрация</a></li>
+                            <li><a href="ecommerce-customers-allInfo.html">Подробная информация о пользователях</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <div class="main-content">
+        <div class="page-content">
+            <div class="page-title-box">
+                <div class="container-fluid">
+                    <div class="row align-items-center">
+                        <div class="col-sm-6">
+                            <div class="page-title">
+                                <h4>Аналитика</h4>
+                                <ol class="breadcrumb m-0">
+                                    <li class="breadcrumb-item"><a href="javascript: void(0);">M&Q</a></li>
+                                    <li class="breadcrumb-item"><a href="javascript: void(0);">Аналитика</a></li>
+                                </ol>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="container-fluid">
+                <div class="page-content-wrapper">
+                    <div class="row">
+                        <div class="col-xl-8">
+                            <div class="card">
+                                <div class="card-body">
+                                    <h4 class="header-title mb-4 float-sm-start">Краткие данные</h4>
+                                    <div class="float-sm-end">
+                                        <ul class="nav nav-pills">
+                                            <li class="nav-item">
+                                                <a class="nav-link" href="#">День</a>
+                                            </li>
+                                            <li class="nav-item">
+                                                <a class="nav-link" href="#">Неделя</a>
+                                            </li>
+                                            <li class="nav-item">
+                                                <a class="nav-link" href="#">Месяц</a>
+                                            </li>
+                                            <li class="nav-item">
+                                                <a class="nav-link active" href="#">Год</a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                    <div class="clearfix"></div>
+                                    <div class="row align-items-center">
+                                        <div class="col-xl-9">
+                                            <div>
+                                                <div id="stacked-column-chart" class="apex-charts" dir="ltr"></div>
+                                            </div>
+                                        </div>
+
+                                        <div class="col-xl-3">
+                                            <div class="dash-info-widget mt-4 mt-lg-0 py-4 px-3 rounded">
+                                                <div class="media dash-main-border pb-2 mt-2">
+                                                    <div class="avatar-sm mb-3 mt-2">
+                                                            <span class="avatar-title rounded-circle bg-white shadow">
+                                                                    <i class="mdi mdi-currency-inr text-primary font-size-18"></i>
+                                                                </span>
+                                                    </div>
+                                                    <div class="media-body ps-3">
+                                                        <h4 class="font-size-20">$2354</h4>
+                                                        <p class="text-muted">Earning <a href="#" class="text-primary">Withdraw
+                                                            <i class="mdi mdi-arrow-right"></i></a>
+                                                        </p>
+                                                    </div>
+                                                </div>
+
+                                                <div class="media mt-4 dash-main-border pb-2">
+                                                    <div class="avatar-sm mb-3 mt-2">
+                                                            <span class="avatar-title rounded-circle bg-white shadow">
+                                                                    <i class="mdi mdi-credit-card-outline text-primary font-size-18"></i>
+                                                                </span>
+                                                    </div>
+                                                    <div class="media-body ps-3">
+                                                        <h4 class="font-size-20">$1598</h4>
+                                                        <p class="text-muted">To Paid <a href="#" class="text-primary">Pay
+                                                            <i class="mdi mdi-arrow-right"></i></a></p>
+                                                    </div>
+                                                </div>
+
+                                                <div class="media mt-4">
+                                                    <div class="avatar-sm mb-2 mt-2">
+                                                            <span class="avatar-title rounded-circle bg-white shadow">
+                                                                    <i class="mdi mdi-eye-outline text-primary font-size-18"></i>
+                                                                </span>
+                                                    </div>
+                                                    <div class="media-body ps-3">
+                                                        <h4 class="font-size-20">1230</h4>
+                                                        <p class="text-muted mb-0">To Online <a href="#"
+                                                                                                class="text-primary">View
+                                                            <i class="mdi mdi-arrow-right"></i></a></p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-xl-4">
+                            <div class="row">
+                                <div class="col-xl-6 col-md-6">
+                                    <div class="card">
+                                        <div class="card-body">
+                                            <div class="text-center">
+                                                <p class="font-size-16">Заказы</p>
+                                                <div class="mini-stat-icon mx-auto mb-4 mt-3">
+                                                        <span class="avatar-title rounded-circle bg-soft-primary">
+                                                                <i class="mdi mdi-cart-outline text-primary font-size-20"></i>
+                                                            </span>
+                                                </div>
+                                                <h5 class="font-size-22">58</h5>
+
+                                                <p class="text-muted">70% Target</p>
+
+                                                <div class="progress mt-3" style="height: 4px;">
+                                                    <div class="progress-bar progress-bar bg-primary" role="progressbar"
+                                                         style="width: 70%" aria-valuenow="70" aria-valuemin="0"
+                                                         aria-valuemax="70">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="col-xl-6 col-md-6">
+                                    <div class="card">
+                                        <div class="card-body">
+                                            <div class="text-center">
+                                                <p class="font-size-16">Пользователи</p>
+                                                <div class="mini-stat-icon mx-auto mb-4 mt-3">
+                                                        <span class="avatar-title rounded-circle bg-soft-success">
+                                                                <i class="mdi mdi-account-outline text-success font-size-20"></i>
+                                                            </span>
+                                                </div>
+                                                <h5 class="font-size-22">136</h5>
+                                                <p class="text-muted">80% Target</p>
+                                                <div class="progress mt-3" style="height: 4px;">
+                                                    <div class="progress-bar progress-bar bg-success" role="progressbar"
+                                                         style="width: 80%" aria-valuenow="80" aria-valuemin="0"
+                                                         aria-valuemax="80">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="card">
+                                <div class="card-body">
+                                    <h4 class="header-title mb-4">Статистика доходов</h4>
+                                    <div class="media">
+                                        <h4>$14,235 </h4>
+                                        <div class="media-body ps-3">
+                                            <div class="dropdown">
+                                                <button class="btn btn-light btn-sm dropdown-toggle" type="button"
+                                                        id="dropdownMenuButton" data-bs-toggle="dropdown"
+                                                        aria-haspopup="true" aria-expanded="false">
+                                                    Today<i class="mdi mdi-chevron-down ms-1"></i>
+                                                </button>
+                                                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                                    <a class="dropdown-item" href="#">Yesterday</a>
+                                                    <a class="dropdown-item" href="#">Last Week</a>
+                                                    <a class="dropdown-item" href="#">last Month</a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="mt-3">
+                                        <div id="stastics-chart"></div>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <button type="button" class="btn btn-primary btn-sm waves-effect waves-light" data-bs-toggle="modal"
+                    data-bs-target=".bs-example-modal-xl">Modal demo
+            </button>
+            <div id="myModal" class="modal fade bs-example-modal-xl" tabindex="-1"
+                 aria-labelledby="myExtraLargeModalLabel"
+                 style="display: none;" aria-hidden="true">
+                <div class="modal-dialog modal-xl">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title mt-0" id="myExtraLargeModalLabel">Профиль</h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">
+
+                            </button>
+                        </div>
+                        <div class="modal-body">
+
+
+                            <div class="row">
+                                <div class="col-xl-6">
+                                    <div class="card">
+                                        <div class="card-body">
+                                            <h4 class="header-title">Редактирование данных</h4>
+                                            <br>
+                                            <!--<p class="card-title-desc">Parsley is a javascript form validation
+                                                library. It helps you provide your users with feedback on their form
+                                                submission before sending it to your server.</p>-->
+                                            <div th:if="${messageUpdateAdminData}" class="alert alert-success"
+                                                 role="alert">
+                                                <span th:text="${messageUpdateAdminData}"></span>
+                                            </div>
+                                            <div th:if="${errorUpdateAdminData}" class="alert alert-danger"
+                                                 role="alert">
+                                                <span th:text="${errorUpdateAdminData}"></span>
+                                            </div>
+
+                                            <form class="custom-validation" action="/admin/updateAdminData"
+                                                  method="POST" enctype="multipart/form-data" id="sendRequestForm">
+                                                <div class="mb-3">
+                                                    <label>Имя</label>
+                                                    <input type="text" class="form-control"
+                                                           th:value="${currentAdmin.firstNameAdmin}"
+                                                           name="firstNameAdmin" id="firstNameAdmin">
+                                                    <div class="error-message" id="firstNameAdminError"></div>
+                                                </div>
+                                                <div class="mb-3">
+                                                    <label>Фамилия</label>
+                                                    <div>
+                                                        <input type="text" class="form-control"
+                                                               th:value="${currentAdmin.lastNameAdmin}"
+                                                               name="lastNameAdmin" id="lastNameAdmin">
+                                                    </div>
+                                                    <div class="error-message" id="lastNameAdminError"></div>
+                                                </div>
+                                                <div class="mb-3">
+                                                    <label>Почта</label>
+                                                    <div>
+                                                        <input type="email" class="form-control"
+                                                               th:value="${currentAdmin.emailAdmin}" id="emailAdmin" name="emailAdmin">
+                                                    </div>
+                                                    <div class="error-message" id="emailAdminError"></div>
+                                                </div>
+                                                <div class="mb-3">
+                                                    <label>Роль</label>
+                                                    <div>
+                                                        <select class="form-control select2" name="role">
+                                                            <option th:value="${currentAdmin.role}"
+                                                                    th:text="${currentAdmin.role}"></option>
+                                                            <option value="USER">USER</option>
+                                                            <option value="CONTENT-MANAGER">CONTENT-MANAGER</option>
+                                                            <option value="ADMIN">ADMIN</option>
+                                                        </select>
+                                                    </div>
+                                                </div>
+
+                                                <div class="mb-3">
+                                                    <label for="formFile" class="form-label">Загрузить
+                                                        изображение</label>
+                                                    <input class="form-control" type="file" id="formFile" name="image"
+                                                           accept="image/*">
+                                                </div>
+
+
+                                                <div class="mb-0">
+                                                    <div>
+                                                        <button type="button" onclick="validateFormEditAdmin()"
+                                                                class="btn btn-primary waves-effect waves-light me-1">
+                                                            Сохранить изменения
+                                                        </button>
+
+                                                    </div>
+                                                </div>
+                                            </form>
+
+                                        </div>
+                                    </div>
+                                </div> <!-- end col -->
+
+                                <div class="col-xl-6">
+                                    <div class="card">
+                                        <div class="card-body">
+
+                                            <h4 class="header-title">Изменение пароля</h4>
+                                            <br>
+
+                                            <div th:if="${message}" class="alert alert-success" role="alert">
+                                                <span th:text="${message}"></span>
+                                            </div>
+                                            <div th:if="${error}" class="alert alert-danger" role="alert">
+                                                <span th:text="${error}"></span>
+                                            </div>
+
+                                            <form action="/admin/changePassword" method="POST" class="custom-validation"
+                                                  id="sendRequestFormPass">
+
+                                                <div class="mb-3">
+                                                    <label>Текущий пароль</label>
+                                                    <div>
+                                                        <input type="password" id="oldPassword" class="form-control"
+                                                               name="oldPassword">
+                                                    </div>
+                                                    <div class="error-message" id="oldPasswordError"></div>
+
+
+                                                    <div class="mt-2">
+                                                        <label>Новый пароль</label>
+                                                        <input type="password" class="form-control" id="newPassword" name="newPassword">
+                                                    </div>
+                                                    <div class="error-message" id="newPasswordError"></div>
+
+                                                </div>
+
+
+                                                <div class="mb-0">
+                                                    <div>
+                                                        <button type="button" onclick="validateFormEditPassAdmin()"
+                                                                class="btn btn-primary waves-effect waves-light me-1">
+                                                            Изменить
+                                                        </button>
+
+                                                    </div>
+                                                </div>
+                                            </form>
+
+                                        </div>
+                                    </div>
+                                </div> <!-- end col -->
+                            </div>
+
+                        </div>
+                    </div><!-- /.modal-content -->
+                </div><!-- /.modal-dialog -->
+            </div>
+        </div>
+
+
+        <footer class="footer">
+            <div class="container-fluid">
+                <div class="row">
+                </div>
+            </div>
+        </footer>
+    </div>
+</div>
+
+<div class="right-bar">
+    <div data-simplebar class="h-100">
+        <div class="rightbar-title d-flex align-items-center px-3 py-4">
+            <h5 class="m-0 me-2">Settings</h5>
+            <a href="javascript:void(0);" class="right-bar-toggle ms-auto">
+                <i class="mdi mdi-close noti-icon"></i>
+            </a>
+        </div>
+
+        <hr class="mt-0"/>
+        <h6 class="text-center mb-0">Choose Layouts</h6>
+        <div class="p-4">
+            <div class="mb-2">
+                <img src="../assets/images/layouts/layout-1.jpg" class="img-fluid img-thumbnail" alt="layout-1">
+            </div>
+            <div class="form-check form-switch mb-3">
+                <input class="form-check-input theme-choice" type="checkbox" id="light-mode-switch" checked>
+                <label class="form-check-label" for="light-mode-switch">Light Mode</label>
+            </div>
+            <div class="mb-2">
+                <img src="../assets/images/layouts/layout-2.jpg" class="img-fluid img-thumbnail" alt="layout-2">
+            </div>
+            <div class="form-check form-switch mb-3">
+                <input class="form-check-input theme-choice" type="checkbox" id="dark-mode-switch"
+                       data-bsStyle="../assets/css/bootstrap-dark.min.css"
+                       data-appStyle="../assets/css/app-dark.min.css">
+                <label class="form-check-label" for="dark-mode-switch">Dark Mode</label>
+            </div>
+            <div class="mb-2">
+                <img src="../assets/images/layouts/layout-3.jpg" class="img-fluid img-thumbnail" alt="layout-3">
+            </div>
+            <div class="form-check form-switch mb-5">
+                <input class="form-check-input theme-choice" type="checkbox" id="rtl-mode-switch"
+                       data-appStyle="../assets/css/app-rtl.min.css">
+                <label class="form-check-label" for="rtl-mode-switch">RTL Mode</label>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="rightbar-overlay"></div>
+
+<!-- JAVASCRIPT -->
+<script src="../assets/libs/jquery/jquery.min.js"></script>
+<script src="../assets/libs/bootstrap/js/bootstrap.bundle.min.js"></script>
+<script src="../assets/libs/metismenu/metisMenu.min.js"></script>
+<script src="../assets/libs/simplebar/simplebar.min.js"></script>
+<script src="../assets/libs/node-waves/waves.min.js"></script>
+
+<!-- apexcharts -->
+<script src="../assets/libs/apexcharts/apexcharts.min.js"></script>
+
+<!-- Plugins js-->
+<script src="../assets/libs/admin-resources/jquery.vectormap/jquery-jvectormap-1.2.2.min.js"></script>
+<script src="../assets/libs/admin-resources/jquery.vectormap/maps/jquery-jvectormap-world-mill-en.js"></script>
+<script src="../assets/js/pages/dashboard.init.js"></script>
+<script src="../assets/js/app.js"></script>
+
+
+<script>
+    function validateFormEditAdmin() {
+        // Устанавливаем флаги валидации на начальное значение (false)
+        var isFirstNameValid = false;
+        var isLastNameValid = false;
+        var isEmailValid = false;
+
+        function setValidity(element, isValid, errorMessage) {
+            var errorId = element.id + "Error";
+            var errorElement = document.getElementById(errorId);
+
+            if (isValid) {
+                element.classList.remove("invalid");
+                element.classList.add("valid");
+                errorElement.innerHTML = "";
+            } else {
+                element.classList.remove("valid");
+                element.classList.add("invalid");
+                errorElement.innerHTML = errorMessage || "This field is required";
+            }
+            return isValid;
+        }
+
+        function isEmpty(value) {
+            return value.trim() === "";
+        }
+
+        // Проводим валидацию для каждого поля
+        isFirstNameValid = setValidity(document.getElementById("firstNameAdmin"), !isEmpty(document.getElementById("firstNameAdmin").value) && /^[A-Za-zА-Яа-яЁё]+$/u.test(document.getElementById("firstNameAdmin").value), "Пожалуйста, введите корректно имя");
+        isLastNameValid = setValidity(document.getElementById("lastNameAdmin"), !isEmpty(document.getElementById("lastNameAdmin").value) && /^[A-Za-zА-Яа-яЁё]+$/u.test(document.getElementById("lastNameAdmin").value), "Пожалуйста, введите корректно фамилию");
+        isEmailValid = setValidity(document.getElementById("emailAdmin"), !isEmpty(document.getElementById("emailAdmin").value) && /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(document.getElementById("emailAdmin").value), "Пожалуйста, введите корректно почту");
+
+        // Отправка формы, если все поля прошли валидацию
+        if (isFirstNameValid && isEmailValid && isLastNameValid) {
+            document.getElementById("sendRequestForm").submit();
+        }
+    }
+
+    function validateFormEditPassAdmin() {
+        // Устанавливаем флаги валидации на начальное значение (false)
+        var isOldPasswordAdminValid = false;
+        var isNewPasswordAdminValid = false;
+
+        function setValidity(element, isValid, errorMessage) {
+            var errorId = element.id + "Error";
+            var errorElement = document.getElementById(errorId);
+
+            if (isValid) {
+                element.classList.remove("invalid");
+                element.classList.add("valid");
+                errorElement.innerHTML = "";
+            } else {
+                element.classList.remove("valid");
+                element.classList.add("invalid");
+                errorElement.innerHTML = errorMessage || "This field is required";
+            }
+            return isValid;
+        }
+
+        function isEmpty(value) {
+            return value.trim() === "";
+        }
+
+        // Проводим валидацию для каждого поля
+        isOldPasswordAdminValid = setValidity(document.getElementById("oldPassword"), !isEmpty(document.getElementById("oldPassword").value) && /^[a-zA-Zа-яА-Я0-9]{8,16}$/.test(document.getElementById("oldPassword").value), "Пожалуйста, введите корректно текущий пароль");
+        isNewPasswordAdminValid = setValidity(document.getElementById("newPassword"), !isEmpty(document.getElementById("newPassword").value) && /^[a-zA-Zа-яА-Я0-9]{8,16}$/.test(document.getElementById("newPassword").value), "Пожалуйста, введите корректно новый пароль");
+
+        // Отправка формы, если все поля прошли валидацию
+        if (isOldPasswordAdminValid && isNewPasswordAdminValid) {
+            document.getElementById("sendRequestFormPass").submit();
+        }
+    }
+</script>
+<script th:if="${error != null} or ${message != null}">
+    document.addEventListener('DOMContentLoaded', function () {
+        var myModal = new bootstrap.Modal(document.getElementById('myModal'));
+        myModal.show();
+    });
+
+</script>
+
+<script th:if="${errorUpdateAdminData != null} or ${messageUpdateAdminData != null}">
+    document.addEventListener('DOMContentLoaded', function () {
+        var myModal = new bootstrap.Modal(document.getElementById('myModal'));
+        myModal.show();
+    });
+
+</script>
+
+</body>
+</html>

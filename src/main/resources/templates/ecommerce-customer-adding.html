@@ -1,0 +1,489 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="utf-8"/>
+    <title>Orders | Admin & Dashboard Template</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta content="Premium Multipurpose Admin & Dashboard Template" name="description"/>
+    <meta content="Themesdesign" name="author"/>
+    <!-- App favicon -->
+    <link rel="shortcut icon" href="../assets/images/favicon.ico">
+
+    <!-- DataTables -->
+
+    <!-- Bootstrap Css -->
+    <link href="../assets/css/bootstrap.min.css" id="bootstrap-style" rel="stylesheet" type="text/css"/>
+    <!-- Icons Css -->
+    <link href="../assets/css/icons.min.css" rel="stylesheet" type="text/css"/>
+    <!-- App Css-->
+    <link href="../assets/css/app.min.css" id="app-style" rel="stylesheet" type="text/css"/>
+
+    <style>
+        .email-rightbar {
+            width: 636px;
+            float: left;
+            padding: 20px;
+            border-radius: 5px;
+        }
+
+        .error-message {
+            font-size: 0.675rem; /* Немного меньше стандартного размера шрифта */
+            color: #b03a2e; /* Бордовый цвет текста */
+            margin-top: 0.25rem; /* Небольшой отступ сверху */
+            margin-bottom: 0; /* Убираем отступ снизу */
+            display: block; /* Обеспечивает, что сообщение занимает новую строку */
+            padding: 0; /* Убираем внутренние отступы */
+            line-height: 1.2; /* Немного увеличиваем межстрочный интервал для удобства чтения */
+        }
+    </style>
+</head>
+
+
+<body>
+
+<!-- Begin page -->
+<div id="layout-wrapper">
+    <header id="page-topbar">
+        <div class="navbar-header">
+            <div class="d-flex">
+                <!-- LOGO -->
+                <div class="navbar-brand-box">
+                    <a  class="logo logo-dark">
+                        <span class="logo-sm">
+                            <img src="../assets/images/logoM&Q-light.png" alt="" height="32">
+                        </span>
+                        <span class="logo-lg">
+                            <img src="../assets/images/test-dark.png" alt="" height="50">
+                        </span>
+                    </a>
+                    <a  class="logo logo-light">
+                        <span class="logo-sm">
+                            <img src="../assets/images/logoM&Q-dark.png" alt="" height="32">
+                        </span>
+                        <span class="logo-lg">
+                            <img src="../assets/images/test-light.png" alt="" height="50">
+                        </span>
+                    </a>
+                </div>
+                <button type="button" class="btn btn-sm px-3 font-size-24 header-item waves-effect"
+                        id="vertical-menu-btn">
+                    <i class="mdi mdi-menu"></i>
+                </button>
+            </div>
+
+            <!-- Search input -->
+            <div class="search-wrap" id="search-wrap">
+                <div class="search-bar">
+                    <input class="search-input form-control" placeholder="Search"/>
+                    <a href="#" class="close-search toggle-search" data-target="#search-wrap">
+                        <i class="mdi mdi-close-circle"></i>
+                    </a>
+                </div>
+            </div>
+
+            <div class="d-flex">
+                <div class="dropdown d-none d-lg-inline-block">
+                    <button type="button" class="btn header-item toggle-search noti-icon waves-effect"
+                            data-target="#search-wrap">
+                        <i class="mdi mdi-magnify"></i>
+                    </button>
+                </div>
+
+                <div class="dropdown d-inline-block">
+                    <button type="button" class="btn header-item waves-effect" id="page-header-user-dropdown"
+                            data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <img class="rounded-circle header-profile-user" th:src="@{/admin/admin/image}"
+                             alt="Header Avatar">
+                        <span class="d-none d-xl-inline-block ms-1">Максим</span>
+                        <i class="mdi mdi-chevron-down d-none d-xl-inline-block"></i>
+                    </button>
+                    <div class="dropdown-menu dropdown-menu-end">
+                        <!-- item-->
+                        <a class="dropdown-item" href="#"><i
+                                class="mdi mdi-account-circle-outline font-size-16 align-middle me-1"></i> Профиль</a>
+                        <div class="dropdown-divider"></div>
+                        <a class="dropdown-item text-danger" href="#"><i
+                                class="mdi mdi-power font-size-16 align-middle me-1 text-danger"></i> Выход</a>
+                    </div>
+                </div>
+
+                <div class="dropdown d-inline-block">
+                    <button type="button" class="btn header-item noti-icon right-bar-toggle waves-effect">
+                        <i class="mdi mdi-cog-outline font-size-20"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- ========== Left Sidebar Start ========== -->
+    <div class="vertical-menu">
+        <div data-simplebar class="h-100">
+            <div class="user-sidebar text-center">
+                <div class="dropdown">
+                    <div class="user-img">
+                        <img th:src="@{/admin/admin/image}" alt="" class="rounded-circle">
+                        <span class="avatar-online bg-success"></span>
+                    </div>
+                    <div class="user-info">
+                        <h5 class="mt-3 font-size-16 text-white">Максим Войстрик</h5>
+                        <span class="font-size-13 text-white-50">Администратор</span>
+                    </div>
+                </div>
+            </div>
+
+            <!--- Sidemenu -->
+            <div id="sidebar-menu">
+                <!-- Left Menu Start -->
+                <ul class="metismenu list-unstyled" id="side-menu">
+                    <li class="menu-title">Меню</li>
+                    <li>
+                        <a href="index-general.html" class="waves-effect">
+                            <i class="dripicons-home"></i>
+                            <span>Аналитика</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="javascript: void(0);" class="has-arrow waves-effect">
+                            <i class="dripicons-cart"></i>
+                            <span>Пользователи</span>
+                        </a>
+                        <ul class="sub-menu" aria-expanded="false">
+                            <li><a href="/admin/listAllUsers">Пользователи</a></li>
+                            <li><a href="/admin/ecommerce-admins">Aдминистраторы</a></li>
+                            <li><a href="/admin/ecommerce-customer-adding">Добавление пользователя</a></li>
+                        </ul>
+                    </li>
+
+                    <li>
+                        <a href="javascript: void(0);" class="has-arrow waves-effect">
+                            <i class="dripicons-mail"></i>
+                            <span>Поддержка</span>
+                        </a>
+                        <ul class="sub-menu" aria-expanded="false">
+                            <li><a href="email-inbox.html">Заявки</a></li>
+                            <!--<li><a href="email-compose.html"></a></li>-->
+                        </ul>
+                    </li>
+                    <li class="menu-title">Компоненты</li>
+                    <li>
+                        <a href="javascript: void(0);" class="has-arrow waves-effect">
+                            <i class="dripicons-user-group"></i>
+                            <span>Аутентификация</span>
+                        </a>
+                        <ul class="sub-menu" aria-expanded="false">
+                            <li><a href="index.html">Стр. Логин</a></li>
+                            <li><a href="auth-register.html">Стр. Регистрация</a></li>
+                            <li><a href="ecommerce-customers-allInfo.html">Подробная информация о пользователях</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+            <!-- Sidebar -->
+        </div>
+    </div>
+
+    <div class="main-content">
+        <div class="page-content">
+            <!-- start page title -->
+            <div class="page-title-box">
+                <div class="container-fluid">
+                    <div class="row align-items-center">
+                        <div class="col-sm-6">
+                            <div class="page-title">
+                                <h4>Пользователи</h4>
+                                <ol class="breadcrumb m-0">
+                                    <li class="breadcrumb-item"><a href="javascript: void(0);">M&Q</a></li>
+                                    <li class="breadcrumb-item"><a href="javascript: void(0);">Пользоватли</a></li>
+                                    <li class="breadcrumb-item active">Добавить пользователя</li>
+                                </ol>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- end page title -->
+            <div class="container-fluid">
+                <div class="page-content-wrapper">
+                    <div class="row">
+                        <div class="col-12 d-flex">
+                            <div class="email-leftbar card me-3"> <!-- добавлен класс me-3 для отступа справа -->
+                                <div class="card-body">
+                                    <h4 class="header-title">Добавление пользователя</h4>
+                                    <div th:if="${message}" class="alert alert-success" role="alert">
+                                        <span th:text="${message}"></span>
+                                    </div>
+                                    <div th:if="${error}" class="alert alert-danger" role="alert">
+                                        <span th:text="${error}"></span>
+                                    </div>
+                                    <br>
+                                    <form novalidate method="post" action="/admin/ecommerce-customer-adding" id="sendRequestForm">
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <div class="mb-3">
+                                                    <label for="firstNameUser" class="form-label">Имя пользователя</label>
+                                                    <input type="text" class="form-control" id="firstNameUser" name="firstNameUser" placeholder="Имя пользователя" required>
+                                                    <div class="error-message" id="firstNameUserError"></div>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <div class="mb-3">
+                                                    <label for="lastNameUser" class="form-label">Фамилия пользователя</label>
+                                                    <input type="text" class="form-control" id="lastNameUser" name="lastNameUser" placeholder="Фамилия пользователя" required>
+                                                    <div class="error-message" id="lastNameUserError"></div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-md-4">
+                                                <div class="mb-3">
+                                                    <label for="emailUser" class="form-label">Почта</label>
+                                                    <input type="email" class="form-control" id="emailUser" name="emailUser" placeholder="Почта" required>
+                                                    <div class="error-message" id="emailUserError"></div>
+
+                                                </div>
+                                            </div>
+                                            <div class="col-md-4">
+                                                <div class="mb-3">
+                                                    <label for="phoneNumberUser" class="form-label">Номер телефона</label>
+                                                    <input type="text" class="form-control" id="phoneNumberUser" name="phoneNumberUser" placeholder="Номер телефона" required>
+                                                    <div class="error-message" id="phoneNumberUserError"></div>
+
+                                                </div>
+                                            </div>
+                                            <div class="col-md-4">
+                                                <div class="mb-3">
+                                                    <label for="cityUser" class="form-label">Город</label>
+                                                    <input type="text" class="form-control" id="cityUser" name="cityUser" placeholder="Город" required>
+                                                    <div class="error-message" id="cityUserError"></div>
+
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-md-12">
+                                                <div class="mb-3">
+                                                    <div class="row">
+                                                        <div class="col-md-6">
+                                                            <label for="passwordUser" class="form-label">Пароль</label>
+                                                            <input type="password" class="form-control" id="passwordUser" name="passwordUser" placeholder="Пароль" required>
+                                                            <div class="error-message" id="passwordUserError"></div>
+
+                                                        </div>
+                                                        <div class="col-md-6">
+                                                            <label class="control-label">Роль</label>
+                                                            <select class="form-control select2" name="role">
+                                                                <option value="USER">Пользователь</option>
+                                                                <option value="CONTENT_MANAGER">Контент-менеджер</option>
+                                                                <option value="ADMIN">Администратор</option>
+                                                            </select>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="form-check mb-3">
+                                            <input class="form-check-input" type="checkbox" value="" id="invalidCheck" required>
+                                            <label class="form-check-label" for="invalidCheck">
+                                                Согласен с условиями
+                                            </label>
+                                            <div class="invalid-feedback">
+                                                Вы должны согласиться перед отправкой.
+                                            </div>
+                                        </div>
+                                        <div>
+                                            <button class="btn btn-primary" type="button" onclick="validateFormAddingUser()">Создать</button>
+                                        </div>
+                                    </form>
+
+                                </div>
+                            </div>
+
+                           <!-- <div class="email-rightbar mb-4 card ms-4">
+                                <div class="card-body">
+                                    <h4 class="header-title">Профиль созданного пользователя</h4>
+                                    <br>
+                                    <div class="d-flex">
+                                        <div class="user-img me-3">
+                                            <img alt="" class="rounded-circle">
+                                            <span class="avatar-online bg-success"></span>
+                                        </div>
+                                        <div class="user-info">
+                                            <h5 class="mt-3 font-size-16">James Raphael</h5>
+                                            <span class="font-size-13 text-muted">Администратор</span>
+                                            <div class="mt-3">
+                                                <div class="mb-2">
+                                                    <label class="form-label">Почта:</label>
+                                                    <p class="form-control-static text-muted">
+                                                        james.raphael@example.com</p>
+                                                </div>
+                                                <div class="mb-2">
+                                                    <label class="form-label">Телефон:</label>
+                                                    <p class="form-control-static text-muted">+1 234 567 890</p>
+                                                </div>
+                                                <div class="mb-2">
+                                                    <label class="form-label">Город:</label>
+                                                    <p class="form-control-static text-muted">San Francisco</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>-->
+
+                            <div class="email-rightbar mb-4 card ms-4">
+                                <div class="card-body">
+                                    <h4 class="header-title">Профиль созданного пользователя</h4>
+                                    <br>
+                                    <div th:if="${message}"  role="alert">
+
+
+                                    <div class="d-flex">
+                                        <div class="user-info">
+                                            <h5 class="mt-3 font-size-16" th:text="${createdUser.firstNameUser}">Имя пользователя</h5>
+                                            <span class="font-size-13 text-muted" th:text="${createdUser.role}">Роль пользователя</span>
+                                            <div class="mt-3">
+                                                <div class="mb-2">
+                                                    <label class="form-label">Почта:</label>
+                                                    <p class="form-control-static text-muted" th:text="${createdUser.emailUser}">Email пользователя</p>
+                                                </div>
+                                                <div class="mb-2">
+                                                    <label class="form-label">Телефон:</label>
+                                                    <p class="form-control-static text-muted" th:text="${createdUser.phoneNumberUser}">Телефон пользователя</p>
+                                                </div>
+                                                <div class="mb-2">
+                                                    <label class="form-label">Город:</label>
+                                                    <p class="form-control-static text-muted" th:text="${createdUser.cityUser}">Город пользователя</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <footer class="footer">
+            <div class="container-fluid">
+            </div>
+        </footer>
+    </div>
+    <!-- end main content-->
+
+</div>
+<div class="right-bar">
+    <div data-simplebar class="h-100">
+        <div class="rightbar-title d-flex align-items-center px-3 py-4">
+            <h5 class="m-0 me-2">Settings</h5>
+            <a href="javascript:void(0);" class="right-bar-toggle ms-auto">
+                <i class="mdi mdi-close noti-icon"></i>
+            </a>
+        </div>
+
+        <!-- Settings -->
+        <hr class="mt-0"/>
+        <h6 class="text-center mb-0">Choose Layouts</h6>
+
+        <div class="p-4">
+            <div class="mb-2">
+                <img src="../assets/images/layouts/layout-1.jpg" class="img-fluid img-thumbnail" alt="layout-1">
+            </div>
+            <div class="form-check form-switch mb-3">
+                <input class="form-check-input theme-choice" type="checkbox" id="light-mode-switch" checked>
+                <label class="form-check-label" for="light-mode-switch">Light Mode</label>
+            </div>
+            <div class="mb-2">
+                <img src="../assets/images/layouts/layout-2.jpg" class="img-fluid img-thumbnail" alt="layout-2">
+            </div>
+            <div class="form-check form-switch mb-3">
+                <input class="form-check-input theme-choice" type="checkbox" id="dark-mode-switch"
+                       data-bsStyle="../assets/css/bootstrap-dark.min.css"
+                       data-appStyle="../assets/css/app-dark.min.css">
+                <label class="form-check-label" for="dark-mode-switch">Dark Mode</label>
+            </div>
+            <div class="mb-2">
+                <img src="../assets/images/layouts/layout-3.jpg" class="img-fluid img-thumbnail" alt="layout-3">
+            </div>
+            <div class="form-check form-switch mb-5">
+                <input class="form-check-input theme-choice" type="checkbox" id="rtl-mode-switch"
+                       data-appStyle="../assets/css/app-rtl.min.css">
+                <label class="form-check-label" for="rtl-mode-switch">RTL Mode</label>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="rightbar-overlay"></div>
+
+<!-- JAVASCRIPT -->
+<script src="../assets/libs/jquery/jquery.min.js"></script>
+<script src="../assets/libs/bootstrap/js/bootstrap.bundle.min.js"></script>
+<script src="../assets/libs/metismenu/metisMenu.min.js"></script>
+<script src="../assets/libs/simplebar/simplebar.min.js"></script>
+<script src="../assets/libs/node-waves/waves.min.js"></script>
+
+<!-- Required datatable js -->
+<script src="../assets/libs/datatables.net/js/jquery.dataTables.min.js"></script>
+<script src="../assets/libs/datatables.net-bs4/js/dataTables.bootstrap4.min.js"></script>
+
+<!-- Responsive examples -->
+<script src="../assets/libs/datatables.net-responsive/js/dataTables.responsive.min.js"></script>
+<script src="../assets/libs/datatables.net-responsive-bs4/js/responsive.bootstrap4.min.js"></script>
+
+<script src="../assets/js/pages/ecommerce-datatables.init.js"></script>
+
+<script src="../assets/js/app.js"></script>
+
+
+<script>
+    function validateFormAddingUser() {
+        // Устанавливаем флаги валидации на начальное значение (false)
+        var isFirstNameValid = false;
+        var isLastNameValid = false;
+        var isPhoneNumberValid = false;
+        var isCityValid = false;
+        var isEmailValid = false;
+        var isPasswordValid = false;
+
+        function setValidity(element, isValid, errorMessage) {
+            var errorId = element.id + "Error";
+            var errorElement = document.getElementById(errorId);
+
+            if (isValid) {
+                element.classList.remove("invalid");
+                element.classList.add("valid");
+                errorElement.innerHTML = "";
+            } else {
+                element.classList.remove("valid");
+                element.classList.add("invalid");
+                errorElement.innerHTML = errorMessage || "This field is required";
+            }
+            return isValid;
+        }
+
+        function isEmpty(value) {
+            return value.trim() === "";
+        }
+
+        // Проводим валидацию для каждого поля
+        isFirstNameValid = setValidity(document.getElementById("firstNameUser"), !isEmpty(document.getElementById("firstNameUser").value) && /^[A-Za-zА-Яа-яЁё]+$/u.test(document.getElementById("firstNameUser").value), "Пожалуйста, введите корректно имя");
+        isLastNameValid = setValidity(document.getElementById("lastNameUser"), !isEmpty(document.getElementById("lastNameUser").value) && /^[A-Za-zА-Яа-яЁё]+$/u.test(document.getElementById("lastNameUser").value), "Пожалуйста, введите корректно фамилию");
+        isPhoneNumberValid = setValidity(document.getElementById("phoneNumberUser"), !isEmpty(document.getElementById("phoneNumberUser").value) && /^[+]?[0-9\s-()]{7,15}$/.test(document.getElementById("phoneNumberUser").value), "Пожалуйста, введите корректно номер телефона");
+        isCityValid = setValidity(document.getElementById("cityUser"), !isEmpty(document.getElementById("cityUser").value) && /^[A-Za-zА-Яа-яЁё]+$/u.test(document.getElementById("cityUser").value), "Пожалуйста, введите корректно город");
+        isEmailValid = setValidity(document.getElementById("emailUser"), !isEmpty(document.getElementById("emailUser").value) && /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(document.getElementById("emailUser").value), "Пожалуйста, введите корректно почту");
+        isPasswordValid = setValidity(document.getElementById("passwordUser"), !isEmpty(document.getElementById("passwordUser").value) && /^[a-zA-Zа-яА-Я0-9]{8,16}$/.test(document.getElementById("passwordUser").value), "Пожалуйста, введите корректно пароль");
+
+        // Отправка формы, если все поля прошли валидацию
+        if (isFirstNameValid && isLastNameValid && isPhoneNumberValid && isCityValid && isEmailValid && isPasswordValid) {
+            document.getElementById("sendRequestForm").submit();
+        }
+    }
+</script>
+</body>
+</html>

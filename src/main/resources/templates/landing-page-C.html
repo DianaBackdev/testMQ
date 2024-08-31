@@ -1,0 +1,583 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Landing page C</title>
+
+    <link type="text/css" rel="stylesheet" href="../assets/css/main-user.css">
+</head>
+<body>
+<header>
+    <div class="header_dots">
+        <img src="../assets/img-user/dots.svg" alt="dots">
+    </div>
+    <div class="left_dots">
+        <img alt="dots" src="../assets/img-user/left_dots.svg">
+    </div>
+    <div class="header">
+        <div class="wrapper">
+            <div class="header_wrapper">
+                <div class="header_left">
+                    <div class="mq_logo">
+                        <a href="/" class="mq_logo_link">
+                            <img src="../assets/img-user/logo_fill.svg" alt="MQ" class="header_logo_pic">
+                        </a>
+                    </div>
+                    <nav class="header_nav_menu">
+                        <ul class="header_list">
+                            <li class="header_item">
+                                <a href="/" class="header_link">О нас</a>
+                            </li>
+                            <li class="header_item">
+                                <a href="/" class="header_link">Контакты</a>
+                            </li>
+                            <li class="header_item">
+                                <a href="/" class="header_link">Курсы</a>
+                            </li>
+                            <li class="header_item">
+                                <a href="/" class="header_link">FAQ</a>
+                            </li>
+                        </ul>
+                    </nav>
+                </div>
+                <div class="header_right">
+                    <p class="phone_number" id="phone_number">+375 29 765 0954</p>
+                    <img class="phone_img" id="phone_img" src="../assets/img-user/phone.svg" alt="phone" onclick="togglePhoneNumber()">
+                    <div class="email_text" id="email_text">example@example.com</div>
+                    <img src="../assets/img-user/Email.svg" alt="mail" onclick="toggleEmailText()">
+                    <button id="openWelcome" class="main_btn">Войти</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+<main>
+    <div id="cookieBanner" class="cookie-banner">
+        <p>Используя данный сайт,
+            вы даете согласие на использование файлов <a href="#">cookie</a>,
+            помогающих нам сделать его удобнее для вас</p>
+        <img alt="close" src="../assets/img-user/close.svg" id="closeBtn" class="close-btn">
+    </div>
+    <!--Секция для текста-->
+    <section class="info_section"> <!--текстовая секция-->
+        <div class="wrapper flex align-items">
+            <div class="info_box flex align-items">
+                <h1>
+                    Современная образовательная платформа
+                </h1>
+                <p>Современная образовательная платформа, которая позволит
+                    по-другому взглянуть на тестирование и разработку продуктов</p>
+                <button onclick="scrollToPartners('courses_container')" class="orange-btn">Выбрать курс</button>
+            </div>
+        </div>
+    </section>
+    <!--Секция партнёров-->
+    <section class="partners_container flex align-items" id="partners_container">
+        <h2>Наши партнеры</h2>
+        <div class="list_partners ">
+            <article class="partner">
+                <div class="partner_img">
+                    <img src="../assets/img-user/logo_Intellect_Service.svg" alt="partner_logo" class="partner_logo">
+                </div>
+                <h3>Intellect Service</h3>
+            </article>
+            <article class="partner">
+                <div class="partner_img">
+                    <img src="../assets/img-user/logo_Intellect_Service.svg" alt="partner_logo" class="partner_logo">
+                </div>
+                <h3>Intellect Service</h3>
+            </article>
+            <article class="partner">
+                <div class="partner_img">
+                    <img src="../assets/img-user/logo_Intellect_Service.svg" alt="partner_logo" class="partner_logo">
+                </div>
+                <h3>Intellect Service</h3>
+            </article>
+            <article class="partner">
+                <div class="partner_img">
+                    <img src="../assets/img-user/logo_Intellect_Service.svg" alt="partner_logo" class="partner_logo">
+                </div>
+                <h3>Intellect Service</h3>
+            </article>
+            <article class="partner">
+                <div class="partner_img">
+                    <img src="../assets/img-user/logo_Intellect_Service.svg" alt="partner_logo" class="partner_logo">
+                </div>
+                <h3>Intellect Service</h3>
+            </article>
+        </div>
+    </section>
+
+    <div class="spacer"></div>
+
+    <!--Секция курсов-->
+    <section class="courses_container" id="courses_container">
+        <div class="wrapper">
+            <h2>Наши курсы</h2>
+            <div class="spacer"></div>
+            <div class="courses_list" id="courses_list">
+                <article class="cart">
+                    <div class="cart_container">
+                        <div class="courses_img">
+                            <img alt="img" src="../assets/img-user/course1.svg">
+                        </div>
+                        <div class="cart_info">
+                            <div class="courses_labels">
+                                <div class="courses_trait">Бесплатный</div>
+                                <div class="courses_trait">Для новичков</div>
+                            </div>
+                            <h3>QA Basics</h3>
+                            <p>Попробуй свои навыки в тестировании.
+                                Бесплатный курс для всех, кто любит исследовать и с
+                                тавить под сомнения работу любой программы
+                            </p>
+                            <button class="main_btn">Узнать больше</button>
+                        </div>
+                    </div>
+                </article>
+                <article class="cart">
+                    <div class="cart_container">
+                        <div class="courses_img">
+                            <img alt="img" src="../assets/img-user/course2.svg">
+                        </div>
+                        <div class="cart_info">
+                            <div class="courses_labels">
+                                <div class="courses_trait">Бесплатный</div>
+                                <div class="courses_trait">Для новичков</div>
+                            </div>
+                            <h3>QA Standard Edition</h3>
+                            <p>Углубленное изучение специальности QA.
+                                Много захватывающей практики, реальные примеры и рабочие
+                                ситуации, аналоги которых встретятся на проекте. Отличный
+                                старт для новичка
+                            </p>
+                            <button class="main_btn">Узнать больше</button>
+                        </div>
+                    </div>
+                </article>
+                <article class="cart">
+                    <div class="cart_container">
+                        <div class="courses_img">
+                            <img alt="img" src="../assets/img-user/course3.svg">
+                        </div>
+                        <div class="cart_info">
+                            <div class="courses_labels">
+                                <div class="courses_trait">Бесплатный</div>
+                                <div class="courses_trait">Для новичков</div>
+                            </div>
+                            <h3>QA Basics</h3>
+                            <p> Индивидуальное обучение 1 на 1 с опытным тренером. Начни знакомиться
+                                с тестированием будучи новичком или прокачай
+                                и укрепи знания по конкретным темам будучи бывалым QA-специалистом
+                            </p>
+                            <button class="main_btn">Узнать больше</button>
+                        </div>
+                    </div>
+                </article>
+            </div>
+        </div>
+        <div class="spacer"></div>
+    </section>
+    <!--Секция принципов обучения-->
+    <section class="principle_section">
+        <h2>Наши главные принципы обучения</h2>
+        <div class="wrapper">
+            <div class="principle_container">
+                <div class="wow_img">
+                    <img alt="wow_img" src="../assets/img-user/wow.svg">
+                </div>
+                <div class="amazing_img">
+                    <img alt="amazing_img" src="../assets/img-user/amazing.svg">
+                </div>
+                <article class="principle">
+                    <img alt="principle-1" src="../assets/img-user/principle-1.svg">
+                    <div class="principle_info">
+                        <h3>Первый принцип</h3>
+                        <p>
+                            Одной из ключевых особенностей Майнкрафта
+                            является его сообщество, которое активно
+                            создает различные
+                        </p>
+                    </div>
+
+                </article>
+                <article class="principle">
+                    <img alt="principle-1" src="../assets/img-user/principle-2.svg">
+                    <div class="principle_info">
+                        <h3>Второй принцип</h3>
+                        <p>
+                            Контенты,
+                            такие как карты, текстуры,
+                            модификации и даже целые игры внутри игры
+                        </p>
+                    </div>
+
+                </article>
+                <article class="principle">
+                    <img alt="principle-1" src="../assets/img-user/principle-3.svg">
+                    <div class="principle_info">
+                        <h3>Третий принцип</h3>
+                        <p>
+                            Это позволяет игре
+                            постоянно развиваться и оставаться интересной
+                            для игроков всех возрастов
+                        </p>
+                    </div>
+
+                </article>
+                <article class="principle">
+                    <img alt="principle-1" src="../assets/img-user/principle-4.svg">
+                    <div class="principle_info">
+                        <h3>Четвертый принцип</h3>
+                        <p>
+                            Майнкрафт также стал платформой
+                            для образовательных проектов,
+                            используемых в школах для обучения
+                        </p>
+                    </div>
+
+                </article>
+            </div>
+        </div>
+    </section>
+    <!--Секция для вопросов-->
+    <div class="spacer "></div>
+    <section class="form_section">
+        <div class="form_container">
+            <h1>Остались вопросы?</h1>
+            <form>
+                <div class="input_box">
+                    <div class="form_group">
+                        <div class="input_box">
+                            <label for="name">Ваше имя:</label>
+                            <input type="text" id="name" placeholder="User1">
+                        </div>
+                        <div class="spacer_form"></div>
+                        <div class="input_box">
+                            <label for="email">Ваша электронная почта:</label>
+                            <input type="email" id="email" placeholder="user1@gmail.com">
+                        </div>
+                    </div>
+                    <div class="form_group">
+                        <div class="input_box">
+                            <label for="step1_phone">Ваш номер телефона:</label>
+                            <input type="tel" id="step1_phone" placeholder="+375 (__) ___-__-__">
+                        </div>
+                        <div class="spacer_form"></div>
+                        <div class="input_box">
+                            <label for="telegram">Ваш никнейм в Telegram:</label>
+                            <input type="text" id="telegram" placeholder="@user1">
+                        </div>
+                    </div>
+                </div>
+                <div class="form_group">
+                    <div class="input_box">
+                        <button type="submit" class="main_btn">Отправить</button>
+                        <p>Свяжитесь, пожалуйста, с <a href="#">поддержкой</a></p>
+                    </div>
+                    <div class="input_box">
+                        <div class="spacer"></div>
+                    </div>
+                </div>
+                <div class="form_group">
+                    <div class="input_box">
+                        <p>Нажимая кнопку "Отправить" вы даете согласие на обработку персональных данных, а также
+                            соглашаетесь с
+                            <a href="#">Условиями использования</a> и <a href="#">Политикой конфиденциальности</a></p>
+                    </div>
+                    <div class="input_box">
+                        <div class="spacer"></div>
+                    </div>
+                </div>
+            </form>
+            <div class="feedback_form">
+                <img alt="feedback_form" src="../assets/img-user/feedback_form.svg"></img>
+            </div>
+        </div>
+    </section>
+
+    <section class="modalSection">
+
+        <div id="registrationModal" class="modal">
+            <div class="header_dots">
+                <img src="../assets/img-user/reg_dots_left.svg" alt="dots">
+            </div>
+            <div class="right_dots">
+                <img src="../assets/img-user/reg_right_dots.svg" alt="dots">
+            </div>
+            <div class="wrapper">
+                <div class="modal-content">
+                    <div class="model_header">
+                        <div class="arrow"></div>
+                        <p>С возвращением в M&Q !</p>
+                        <a href="#" class="close" id="closeModal1" role="button">close</a>
+                    </div>
+                    <div class="modal_form">
+                        <form>
+                            <div class="input_box">
+                                <div class="form_group">
+                                    <div class="input_box">
+                                        <label for="modal-name">Ваше имя:</label>
+                                        <input type="text" id="modal-name" placeholder="User1">
+                                    </div>
+                                    <div class="spacer_form"></div>
+                                    <div class="input_box">
+                                        <label for="modal_step_email">Ваша электронная почта:</label>
+                                        <input type="email" id="modal_step_email" placeholder="user1@gmail.com">
+                                    </div>
+                                </div>
+                                <div class="form_group">
+                                    <div class="input_box">
+                                        <label for="modal-phone">Ваш номер телефона:</label>
+                                        <input type="tel" id="modal-phone" placeholder="+375 (__) ___-__-__">
+                                    </div>
+                                    <div class="spacer_form"></div>
+                                    <div class="input_box">
+                                        <label for="modal-telegram">Ваш никнейм в Telegram:</label>
+                                        <input type="text" id="modal-telegram" placeholder="@user1">
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                    <div class="other_platforms">
+                        <p>Войти с помощью</p>
+                        <img alt="Google" src="../assets/img-user/Google.svg">
+                        <img alt="Yandex" src="../assets/img-user/Yandex.svg">
+                    </div>
+                    <div class="other">
+                        <a href="/">Создать аккаунт</a>
+                        <a href="/">Забыли пароль?</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="welcome_model">
+            <div id="welcome_model" class="modal">
+                <div class="header_dots">
+                    <img src="../assets/img-user/reg_dots_left.svg" alt="dots">
+                </div>
+                <div class="right_dots">
+                    <img src="../assets/img-user/reg_right_dots.svg" alt="dots">
+                </div>
+                <div class="wrapper">
+                    <div class="modal-content">
+                        <div class="model_header">
+                            <div class="arrow"></div>
+                            <h2>С возвращением в M&Q !</h2>
+                            <a href="#" class="close" id="closeModal2" role="button">close</a>
+                        </div>
+                        <div class="modal_form">
+                            <form>
+                                <div class="reg_group">
+                                    <div class="input_box">
+                                        <label for="welcome_email">Ваша электронная почта:</label>
+                                        <input type="email" id="welcome_email" placeholder="user1@gmail.com">
+                                    </div>
+                                    <div class="spacer_form"></div>
+                                    <div class="input_box">
+                                        <label for="welcome_password">Пароль:</label>
+                                        <input type="password" id="welcome_password">
+                                    </div>
+                                    <div class="spacer_form"></div>
+                                    <button class="main_btn">Войти</button>
+                                </div>
+                            </form>
+                        </div>
+                        <div class="other_platforms">
+                            <p>Войти с помощью</p>
+                            <div class="platform_list">
+                                <img alt="Google" src="../assets/img-user/Google.svg">
+                                <img alt="Yandex" src="../assets/img-user/Yandex.svg">
+                            </div>
+                        </div>
+                        <div class="other">
+                            <a id="openReg" href="/">Создать аккаунт</a>
+                            <a id="open_Step_1" href="/">Забыли пароль?</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="shuufuku_model step-1">
+            <div id="shuufuku_model-step-1" class="modal">
+                <div class="header_dots">
+                    <img src="../assets/img-user/reg_dots_left.svg" alt="dots">
+                </div>
+                <div class="right_dots">
+                    <img src="../assets/img-user/reg_right_dots.svg" alt="dots">
+                </div>
+                <div class="wrapper">
+                    <div class="modal-content">
+                        <div class="model_header">
+                            <div class="arrow"></div>
+                            <h2>Восстановление пароля</h2>
+                            <a href="#" class="close" id="closeModal3" role="button">close</a>
+                        </div>
+                        <div class="modal_form">
+                            <form>
+                                <div class="reg_group">
+                                    <div class="input_box">
+                                        <label for="modal-email">Ваша электронная почта:</label>
+                                        <input type="email" id="modal-email" placeholder="user1@gmail.com">
+                                    </div>
+                                    <div class="spacer_form"></div>
+                                    <div class="input_box">
+                                        <p class="model_or">Или</p>
+                                    </div>
+                                    <div class="spacer_form"></div>
+
+                                    <div class="input_box">
+                                            <label for="phone">Ваш номер телефона:</label>
+                                            <input type="tel" id="phone" placeholder="+375 (__) ___-__-__">
+                                    </div>
+                                    <button id="open_Step_2"  class="main_btn">Войти</button>
+                                </div>
+                            </form>
+                        </div>
+                        <div class="other">
+                            <a class="openReg" href="/">Создать аккаунт</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="shuufuku_model step-2">
+            <div id="shuufuku_model-step-2" class="modal">
+                <div class="header_dots">
+                    <img src="../assets/img-user/reg_dots_left.svg" alt="dots">
+                </div>
+                <div class="right_dots">
+                    <img src="../assets/img-user/reg_right_dots.svg" alt="dots">
+                </div>
+                <div class="wrapper">
+                    <div class="modal-content">
+                        <div class="model_header">
+                            <div class="arrow"></div>
+                            <h2>Восстановление пароля</h2>
+                            <a href="#" class="close" id="closeModal4" role="button">close</a>
+                        </div>
+                        <div class="modal_form">
+                            <form>
+                                <div class="reg_group">
+                                    <div class="input_box">
+                                        <label for="modal_number">Код:</label>
+                                        <input type="number" id="modal_number" placeholder="123456789">
+                                    </div>
+                                    <div class="spacer_form"></div>
+                                    <div class="input_box">
+                                        <p class="shuufuku_info">Пожалуйста, введите код, отправленный на вашу электронную почту или номер телефона.</p>
+                                        <p class="shuufuku_info">Повторно отправить код: 58</p>
+                                    </div>
+                                    <div class="spacer_form"></div>
+
+                                    <button  class="main_btn">Отправить</button>
+                                </div>
+                            </form>
+                        </div>
+                        <div class="other">
+                            <a class="openReg" href="/">Создать аккаунт</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="shuufuku_model step-3">
+            <div id="shuufuku_model-step-3" class="modal">
+                <div class="header_dots">
+                    <img src="../assets/img-user/reg_dots_left.svg" alt="dots">
+                </div>
+                <div class="right_dots">
+                    <img src="../assets/img-user/reg_right_dots.svg" alt="dots">
+                </div>
+                <div class="wrapper">
+                    <div class="modal-content">
+                        <div class="model_header">
+                            <div class="arrow"></div>
+                            <h2>Восстановление пароля</h2>
+                            <a href="#" class="close" id="closeModal5" role="button">close</a>
+                        </div>
+                        <div class="modal_form">
+                            <form>
+                                <div class="reg_group">
+                                    <div class="input_box">
+                                        <label for="modal-name">Введите новый пароль:</label>
+                                        <input type="password" id="modal-password">
+                                    </div>
+                                    <div class="spacer_form"></div>
+                                    <div class="input_box">
+                                        <label for="modal-name">Повторите новый пароль::</label>
+                                        <input type="password" id="modal-password">
+                                    </div>
+                                    <button class="main_btn">Сохранить</button>
+                                </div>
+                            </form>
+                        </div>
+                        <div class="other">
+                            <a href="/">Создать аккаунт</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!--Конец main-->
+</main>
+<!--Футер-->
+<section>
+    <footer class="footer">
+        <div class="wrapper">
+            <div class="top_footer">
+                <div class="mq_logo">
+                    <a href="/" class="mq_logo_link">
+                        <img src="../assets/img-user/logo_fill.svg" alt="MQ" class="header_logo_pic">
+                    </a>
+                </div>
+                <div class="social">
+                    <a href="/" class="social_item">
+                        <img src="../assets/img-user/telegram.svg" alt="MQ" class="header_logo_pic">
+                    </a>
+                    <a href="/" class="social_item">
+                        <img src="../assets/img-user/tiktok.svg" alt="MQ" class="header_logo_pic">
+                    </a>
+                    <a href="/" class="social_item">
+                        <img src="../assets/img-user/instagram.svg" alt="MQ" class="header_logo_pic">
+                    </a>
+                </div>
+                <div class="footer_contact">
+                    <div class="footer_mail">
+                        <p>mnq@info.com</p>
+                        <img src="../assets/img-user/Email.svg" alt="mail">
+                    </div>
+                    <div class="footer_telephone">
+                        <p>+375 (29) 123-45-67</p>
+                        <img class="phone_img" id="phone_img"
+                             src="../assets/img-user/phone.svg" alt="phone">
+                    </div>
+                </div>
+            </div>
+            <div class="down_footer">
+                <div class="footer_info">
+                    <p>© Modern & Quality, 2024</p>
+                </div>
+                <div class="useful_links">
+                    <ul>
+                        <li class="footer_item">
+                            <a href="/" class="footer_link">Условия использования</a>
+                        </li>
+                        <li class="footer_item">
+                            <a href="/" class="footer_link">Политика конфиденциальности</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </footer>
+</section>
+<script src="../assets/js/main-user.js"></script>
+</body>
+</html>

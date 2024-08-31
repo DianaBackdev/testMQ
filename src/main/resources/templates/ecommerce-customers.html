@@ -1,0 +1,903 @@
+<!doctype html>
+<html lang="en">
+
+    <head>
+        
+        
+        <meta charset="utf-8" />
+        <title>Customers | Admin & Dashboard Template</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta content="Premium Multipurpose Admin & Dashboard Template" name="description" />
+        <meta content="Themesdesign" name="author" />
+        <!-- App favicon -->
+        <link rel="shortcut icon" href="../assets/images/favicon.ico">
+
+        <!-- DataTables -->
+        <link href="../assets/libs/datatables.net-bs4/css/dataTables.bootstrap4.min.css" rel="stylesheet" type="text/css" />
+
+        <!-- Responsive datatable examples -->
+        <link href="../assets/libs/datatables.net-responsive-bs4/css/responsive.bootstrap4.min.css" rel="stylesheet" type="text/css" />
+
+        <!-- Bootstrap Css -->
+        <link href="../assets/css/bootstrap.min.css" id="bootstrap-style" rel="stylesheet" type="text/css" />
+        <!-- Icons Css -->
+        <link href="../assets/css/icons.min.css" rel="stylesheet" type="text/css" />
+        <!-- App Css-->
+        <link href="../assets/css/app.min.css" id="app-style" rel="stylesheet" type="text/css" />
+
+        <style>
+            .error-message {
+                font-size: 0.675rem; /* Немного меньше стандартного размера шрифта */
+                color: #b03a2e; /* Бордовый цвет текста */
+                margin-top: 0.25rem; /* Небольшой отступ сверху */
+                margin-bottom: 0; /* Убираем отступ снизу */
+                display: block; /* Обеспечивает, что сообщение занимает новую строку */
+                padding: 0; /* Убираем внутренние отступы */
+                line-height: 1.2; /* Немного увеличиваем межстрочный интервал для удобства чтения */
+            }
+
+
+        </style>
+    </head>
+
+    <body>
+        <div id="layout-wrapper">
+            <header id="page-topbar">
+                <div class="navbar-header">
+                    <div class="d-flex">
+                        <div class="navbar-brand-box">
+                            <a href="index-general.html" class="logo logo-dark">
+                        <span class="logo-sm">
+                            <img src="../assets/images/logoM&Q-light.png" alt="" height="32">
+                        </span>
+                                <span class="logo-lg">
+                            <img src="../assets/images/test-dark.png" alt="" height="50">
+                        </span>
+                            </a>
+                            <a href="index-general.html" class="logo logo-light">
+                        <span class="logo-sm">
+                            <img src="../assets/images/logoM&Q-dark.png" alt="" height="32">
+                        </span>
+                                <span class="logo-lg">
+                            <img src="../assets/images/test-light.png" alt="" height="50">
+                        </span>
+                            </a>
+                        </div>
+                        <button type="button" class="btn btn-sm px-3 font-size-24 header-item waves-effect" id="vertical-menu-btn">
+                            <i class="mdi mdi-menu"></i>
+                        </button>
+                    </div>
+
+                    <!-- Search input -->
+                    <div class="search-wrap" id="search-wrap">
+                        <div class="search-bar">
+                            <input class="search-input form-control" placeholder="Search" />
+                            <a href="#" class="close-search toggle-search" data-target="#search-wrap">
+                                <i class="mdi mdi-close-circle"></i>
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="d-flex">
+                        <div class="dropdown d-none d-lg-inline-block">
+                            <button type="button" class="btn header-item toggle-search noti-icon waves-effect" data-target="#search-wrap">
+                                <i class="mdi mdi-magnify"></i>
+                            </button>
+                        </div>
+
+                        <div class="dropdown d-inline-block">
+                            <button type="button" class="btn header-item waves-effect" id="page-header-user-dropdown"
+                                    data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <img class="rounded-circle header-profile-user" src="../assets/images/users/avatar-7.jpg"
+                                     alt="Header Avatar">
+                                <span class="d-none d-xl-inline-block ms-1">Максим</span>
+                                <i class="mdi mdi-chevron-down d-none d-xl-inline-block"></i>
+                            </button>
+                            <div class="dropdown-menu dropdown-menu-end">
+                                <!-- item-->
+                                <a class="dropdown-item" href="#"><i class="mdi mdi-account-circle-outline font-size-16 align-middle me-1"></i> Профиль</a>
+                                      <div class="dropdown-divider"></div>
+                                <a class="dropdown-item text-danger" href="#"><i class="mdi mdi-power font-size-16 align-middle me-1 text-danger"></i> Выход</a>
+                            </div>
+                        </div>
+
+                        <div class="dropdown d-inline-block">
+                            <button type="button" class="btn header-item noti-icon right-bar-toggle waves-effect">
+                                <i class="mdi mdi-cog-outline font-size-20"></i>
+                            </button>
+                        </div>
+
+                    </div>
+                </div>
+            </header>
+
+            <div class="vertical-menu">
+                <div data-simplebar class="h-100">
+                    <div class="user-sidebar text-center">
+                        <div class="dropdown">
+                            <div class="user-img">
+                                <img src="../assets/images/users/avatar-7.jpg" alt="" class="rounded-circle">
+                                <span class="avatar-online bg-success"></span>
+                            </div>
+                            <div class="user-info">
+                                <h5 class="mt-3 font-size-16 text-white">Максим Войстрик</h5>
+                                <span class="font-size-13 text-white-50">Администратор</span>
+                            </div>
+                        </div>
+                    </div>
+                    <!--- Sidemenu -->
+                    <div id="sidebar-menu">
+                        <!-- Left Menu Start -->
+                        <ul class="metismenu list-unstyled" id="side-menu">
+                            <li class="menu-title">Меню</li>
+                            <li>
+                                <a href="index-general.html" class="waves-effect">
+                                    <span>Аналитика</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="javascript: void(0);" class="has-arrow waves-effect">
+                                    <i class="dripicons-cart"></i>
+                                    <span>Аккаунты</span>
+                                </a>
+                                <ul class="sub-menu" aria-expanded="false">
+                                    <li><a href="/admin/listAllUsers">Пользователи</a></li>
+                                    <li><a href="/admin/ecommerce-admins">Aдминистраторы</a></li>
+                                    <li><a href="/admin/ecommerce-customer-adding">Добавление пользователя</a></li>
+
+                                </ul>
+                            </li>
+
+                            <li>
+                                <a href="javascript: void(0);" class="has-arrow waves-effect">
+                                    <i class="dripicons-mail"></i>
+                                    <span>Поддержка</span>
+                                </a>
+                                <ul class="sub-menu" aria-expanded="false">
+                                    <li><a href="email-inbox.html">Заявки</a></li>
+                                </ul>
+                            </li>
+
+                            <li>
+                                <a href="javascript: void(0);" class="has-arrow waves-effect">
+                                    <i class="dripicons-user-group"></i>
+                                    <span>Аутентификация</span>
+                                </a>
+                                <ul class="sub-menu" aria-expanded="false">
+                                    <li><a href="index.html">Стр. Логин</a></li>
+                                    <li><a href="auth-register.html">Стр. Регистрация</a></li>
+                                    <li><a href="ecommerce-customers-allInfo.html">Подробная информация о пользователях</a></li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </div>
+                    <!-- Sidebar -->
+                </div>
+            </div>
+            <div class="main-content">
+                <div class="page-content">
+                    <!-- start page title -->
+                    <div class="page-title-box">
+                        <div class="container-fluid">
+                         <div class="row align-items-center">
+                             <div class="col-sm-6">
+                                 <div class="page-title">
+                                     <h4>Аккаунты</h4>
+                                         <ol class="breadcrumb m-0">
+                                             <li class="breadcrumb-item"><a href="javascript: void(0);">M&Q</a></li>
+                                             <li class="breadcrumb-item"><a href="javascript: void(0);">Пользователи</a></li>
+                                             <li class="breadcrumb-item active">Все пользователи</li>
+                                         </ol>
+                                 </div>
+                             </div>
+                         </div>
+                        </div>
+                     </div>
+
+                    <div class="container-fluid">
+                        <div class="page-content-wrapper">
+                            <div class="row">
+                                <div class="col-lg-12">
+                                    <div class="card">
+                                        <div class="card-body">
+                                            <div th:if="${message}" class="alert alert-success" role="alert">
+                                                <span th:text="${message}"></span>
+                                            </div>
+                                            <div th:if="${error}" class="alert alert-danger" role="alert">
+                                                <span th:text="${error}"></span>
+                                            </div>
+                                            <div>
+
+                                                <a type="button" class="btn btn-primary waves-effect waves-light mb-2" data-bs-toggle="modal" data-bs-target="#myModalAddUser"><i ></i>Добавить пользователя</a>
+                                                <a href="javascript:void(0);" class="btn btn-primary waves-effect waves-light mb-2"><i ></i>Фильтр</a>
+                                            </div>
+                                            <div class="table-responsive mt-3">
+
+                                                <table class="table table-centered datatable dt-responsive nowrap editable"   style="border-collapse: collapse; border-spacing: 0; width: 100%;">
+                                                    <thead class="thead-light">
+                                                    <tr>
+                                                        <th>ID</th>
+                                                        <th>Пользователи</th>
+                                                        <th>Почта</th>
+                                                        <th>Телефон</th>
+                                                        <th>Город</th>
+                                                        <th>Дата регистрации</th>
+                                                        <th>Действия</th>
+                                                    </tr>
+                                                    </thead>
+                                                    <tbody>
+                                                    <!-- Начало цикла для отображения пользователей -->
+                                                    <tr th:each="user : ${listAllUsersSort}">
+                                                        <td th:text="${user.id}">ID</td>
+                                                        <td th:text="${user.firstNameUser + ' ' + user.lastNameUser}">Имя пользователя</td>
+                                                        <td th:text="${user.emailUser}">Почта</td>
+                                                        <td th:text="${user.phoneNumberUser}">Телефон</td>
+                                                        <td th:text="${user.cityUser}">Город</td>
+                                                        <td th:text="${user.accountCreationDateUser}">Дата регистрации</td>
+
+                                                        <td id="tooltip-container0">
+
+
+                                                            <a href="javascript:void(0);" class="me-3 text-primary arrow" data-bs-container="#tooltip-container0" data-bs-toggle="tooltip" data-bs-placement="top" title="Перейти">
+                                                                <i class="mdi mdi-arrow-right font-size-18"></i>
+                                                            </a>
+                                                            <a href="javascript:void(0);" class="me-3 text-primary edit" data-bs-container="#tooltip-container0" data-bs-toggle="tooltip" data-bs-placement="top" title="Редактировать">
+                                                                <i class="mdi mdi-pencil font-size-18"></i>
+                                                            </a>
+                                                            <a th:href="@{/admin/ecommerce-customers-allInfo/{id}(id=${user.id})}" class="text-danger delete" data-bs-container="#tooltip-container0" data-bs-toggle="tooltip" data-bs-placement="top" title="Удалить">
+                                                                <i class="mdi mdi-trash-can font-size-18"></i>
+                                                            </a>
+
+
+
+                                                        </td>
+
+                                                    </tr>
+                                                    <!-- Конец цикла -->
+
+                                                  <!--  <tr th:each="user : ${listAllUsersSort}">
+                                                        <td th:text="${user.id}">ID пользователя</td>
+                                                        <td th:text="${user.firstNameUser + ' ' + user.lastNameUser}">Имя пользователя</td>
+                                                        <td th:text="${user.emailUser}">Почта</td>
+                                                        <td th:text="${user.phoneNumberUser}">Телефон</td>
+                                                        <td th:text="${user.cityUser}">Город</td>
+                                                        <td th:text="${user.accountCreationDateUser}">Дата регистрации</td>
+                                                    </tr>-->
+
+                                                    </tbody>
+                                                </table>
+
+                                            </div>
+                                        </div>
+
+                                        <!--<div class="card-body">
+                                            <div>
+
+                                                <a type="button" class="btn btn-primary waves-effect waves-light mb-2" data-bs-toggle="modal" data-bs-target="#myModalAddUser"><i></i>Добавить пользователя</a>
+                                                <a href="javascript:void(0);" class="btn btn-primary waves-effect waves-light mb-2"><i></i>Фильтр</a>
+                                            </div>
+                                            <div class="table-responsive mt-3">
+
+                                                <div id="DataTables_Table_0_wrapper" class="dataTables_wrapper dt-bootstrap4 no-footer"><div class="row"><div class="col-sm-12 col-md-6"><div class="dataTables_length" id="DataTables_Table_0_length"><label>Show <select name="DataTables_Table_0_length" aria-controls="DataTables_Table_0" class="custom-select custom-select-sm form-control form-control-sm form-select form-select-sm"><option value="10">10</option><option value="25">25</option><option value="50">50</option><option value="100">100</option></select> entries</label></div></div><div class="col-sm-12 col-md-6"><div id="DataTables_Table_0_filter" class="dataTables_filter"><label>Search:<input type="search" class="form-control form-control-sm" placeholder="" aria-controls="DataTables_Table_0"></label></div></div></div><div class="row"><div class="col-sm-12"><table class="table table-centered datatable dt-responsive nowrap editable dataTable no-footer dtr-inline" style="border-collapse: collapse; border-spacing: 0px; width: 100%;" id="DataTables_Table_0" role="grid" aria-describedby="DataTables_Table_0_info">
+                                                    <thead class="thead-light">
+                                                    <tr role="row"><th class="sorting_asc" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1" colspan="1" style="width: 145px;" aria-sort="ascending" aria-label="Пользователи: activate to sort column descending">Пользователи</th><th class="sorting" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1" colspan="1" style="width: 208px;" aria-label="Почта: activate to sort column ascending">Почта</th><th class="sorting" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1" colspan="1" style="width: 136px;" aria-label="Телефон: activate to sort column ascending">Телефон</th><th class="sorting" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1" colspan="1" style="width: 70px;" aria-label="Город: activate to sort column ascending">Город</th><th class="sorting" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1" colspan="1" style="width: 249px;" aria-label="Дата регистрации: activate to sort column ascending">Дата регистрации</th><th class="sorting" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1" colspan="1" style="width: 115px;" aria-label="Действия: activate to sort column ascending">Действия</th></tr>
+                                                    </thead>
+                                                    <tbody>
+                                                    &lt;!&ndash; Начало цикла для отображения пользователей &ndash;&gt;
+
+
+
+
+
+
+
+
+
+
+
+
+
+                                                    &lt;!&ndash; Конец цикла &ndash;&gt;
+                                                    <tr class="odd">
+
+                                                        <td class="sorting_1 dtr-control">Анна Скачкова</td>
+                                                        <td>any@gmail.com</td>
+                                                        <td>+375297650954</td>
+                                                        <td>Минск</td>
+                                                        <td>2024-08-12T14:01:12.655488</td>
+                                                        <td id="tooltip-container0">
+
+
+                                                            <a href="javascript:void(0);" class="me-3 text-primary arrow" data-bs-container="#tooltip-container0" data-bs-toggle="tooltip" data-bs-placement="top" title="" data-bs-original-title="Перейти">
+                                                                <i class="mdi mdi-arrow-right font-size-18"></i>
+                                                            </a>
+                                                            <a href="javascript:void(0);" class="me-3 text-primary edit" data-bs-container="#tooltip-container0" data-bs-toggle="tooltip" data-bs-placement="top" title="" data-bs-original-title="Редактировать">
+                                                                <i class="mdi mdi-pencil font-size-18"></i>
+                                                            </a>
+                                                            <a href="javascript:void(0);" class="text-danger delete" data-bs-container="#tooltip-container0" data-bs-toggle="tooltip" data-bs-placement="top" title="" data-bs-original-title="Удалить">
+                                                                <i class="mdi mdi-trash-can font-size-18"></i>
+                                                            </a>
+
+
+
+                                                        </td>
+
+                                                    </tr><tr class="even">
+
+                                                        <td class="sorting_1 dtr-control">Анна Скачкова</td>
+                                                        <td>asny@gmail.com</td>
+                                                        <td>+375297650954</td>
+                                                        <td>Минск</td>
+                                                        <td>2024-08-12T15:50:17.082410</td>
+                                                        <td id="tooltip-container0">
+
+
+                                                            <a href="javascript:void(0);" class="me-3 text-primary arrow" data-bs-container="#tooltip-container0" data-bs-toggle="tooltip" data-bs-placement="top" title="" data-bs-original-title="Перейти">
+                                                                <i class="mdi mdi-arrow-right font-size-18"></i>
+                                                            </a>
+                                                            <a href="javascript:void(0);" class="me-3 text-primary edit" data-bs-container="#tooltip-container0" data-bs-toggle="tooltip" data-bs-placement="top" title="" data-bs-original-title="Редактировать">
+                                                                <i class="mdi mdi-pencil font-size-18"></i>
+                                                            </a>
+                                                            <a href="javascript:void(0);" class="text-danger delete" data-bs-container="#tooltip-container0" data-bs-toggle="tooltip" data-bs-placement="top" title="" data-bs-original-title="Удалить">
+                                                                <i class="mdi mdi-trash-can font-size-18"></i>
+                                                            </a>
+
+
+
+                                                        </td>
+
+                                                    </tr><tr class="odd">
+
+                                                        <td class="sorting_1 dtr-control">Анна Скачкова</td>
+                                                        <td>asy@gmail.com</td>
+                                                        <td>+375297650954</td>
+                                                        <td>Минск</td>
+                                                        <td>2024-08-12T16:01:41.697487</td>
+                                                        <td id="tooltip-container0">
+
+
+                                                            <a href="javascript:void(0);" class="me-3 text-primary arrow" data-bs-container="#tooltip-container0" data-bs-toggle="tooltip" data-bs-placement="top" title="" data-bs-original-title="Перейти">
+                                                                <i class="mdi mdi-arrow-right font-size-18"></i>
+                                                            </a>
+                                                            <a href="javascript:void(0);" class="me-3 text-primary edit" data-bs-container="#tooltip-container0" data-bs-toggle="tooltip" data-bs-placement="top" title="" data-bs-original-title="Редактировать">
+                                                                <i class="mdi mdi-pencil font-size-18"></i>
+                                                            </a>
+                                                            <a href="javascript:void(0);" class="text-danger delete" data-bs-container="#tooltip-container0" data-bs-toggle="tooltip" data-bs-placement="top" title="" data-bs-original-title="Удалить">
+                                                                <i class="mdi mdi-trash-can font-size-18"></i>
+                                                            </a>
+
+
+
+                                                        </td>
+
+                                                    </tr><tr class="even">
+
+                                                        <td class="sorting_1 dtr-control">Анна Скачкова</td>
+                                                        <td>assdcny@gmail.com</td>
+                                                        <td>+375297650954</td>
+                                                        <td>Минск</td>
+                                                        <td>2024-08-12T16:08:47.875503</td>
+                                                        <td id="tooltip-container0">
+
+
+                                                            <a href="javascript:void(0);" class="me-3 text-primary arrow" data-bs-container="#tooltip-container0" data-bs-toggle="tooltip" data-bs-placement="top" title="" data-bs-original-title="Перейти">
+                                                                <i class="mdi mdi-arrow-right font-size-18"></i>
+                                                            </a>
+                                                            <a href="javascript:void(0);" class="me-3 text-primary edit" data-bs-container="#tooltip-container0" data-bs-toggle="tooltip" data-bs-placement="top" title="" data-bs-original-title="Редактировать">
+                                                                <i class="mdi mdi-pencil font-size-18"></i>
+                                                            </a>
+                                                            <a href="javascript:void(0);" class="text-danger delete" data-bs-container="#tooltip-container0" data-bs-toggle="tooltip" data-bs-placement="top" title="" data-bs-original-title="Удалить">
+                                                                <i class="mdi mdi-trash-can font-size-18"></i>
+                                                            </a>
+
+
+
+                                                        </td>
+
+                                                    </tr><tr class="odd">
+
+                                                        <td class="sorting_1 dtr-control">Анна Скачкова</td>
+                                                        <td>anhgtfhyty@gmail.com</td>
+                                                        <td>+375297650954</td>
+                                                        <td>Минск</td>
+                                                        <td>2024-08-12T16:09:49.870529</td>
+                                                        <td id="tooltip-container0">
+
+
+                                                            <a href="javascript:void(0);" class="me-3 text-primary arrow" data-bs-container="#tooltip-container0" data-bs-toggle="tooltip" data-bs-placement="top" title="" data-bs-original-title="Перейти">
+                                                                <i class="mdi mdi-arrow-right font-size-18"></i>
+                                                            </a>
+                                                            <a href="javascript:void(0);" class="me-3 text-primary edit" data-bs-container="#tooltip-container0" data-bs-toggle="tooltip" data-bs-placement="top" title="" data-bs-original-title="Редактировать">
+                                                                <i class="mdi mdi-pencil font-size-18"></i>
+                                                            </a>
+                                                            <a href="javascript:void(0);" class="text-danger delete" data-bs-container="#tooltip-container0" data-bs-toggle="tooltip" data-bs-placement="top" title="" data-bs-original-title="Удалить">
+                                                                <i class="mdi mdi-trash-can font-size-18"></i>
+                                                            </a>
+
+
+
+                                                        </td>
+
+                                                    </tr><tr class="even">
+
+                                                        <td class="sorting_1 dtr-control">Анна Скачкова</td>
+                                                        <td>an1y@gmail.com</td>
+                                                        <td>+375297650954</td>
+                                                        <td>Минск</td>
+                                                        <td>2024-08-12T14:01:12.655488</td>
+                                                        <td id="tooltip-container0">
+
+
+                                                            <a href="javascript:void(0);" class="me-3 text-primary arrow" data-bs-container="#tooltip-container0" data-bs-toggle="tooltip" data-bs-placement="top" title="" data-bs-original-title="Перейти">
+                                                                <i class="mdi mdi-arrow-right font-size-18"></i>
+                                                            </a>
+                                                            <a href="javascript:void(0);" class="me-3 text-primary edit" data-bs-container="#tooltip-container0" data-bs-toggle="tooltip" data-bs-placement="top" title="" data-bs-original-title="Редактировать">
+                                                                <i class="mdi mdi-pencil font-size-18"></i>
+                                                            </a>
+                                                            <a href="javascript:void(0);" class="text-danger delete" data-bs-container="#tooltip-container0" data-bs-toggle="tooltip" data-bs-placement="top" title="" data-bs-original-title="Удалить">
+                                                                <i class="mdi mdi-trash-can font-size-18"></i>
+                                                            </a>
+
+
+
+                                                        </td>
+
+                                                    </tr><tr class="odd">
+
+                                                        <td class="sorting_1 dtr-control">Анна Скачкова</td>
+                                                        <td>as1ny@gmail.com</td>
+                                                        <td>+375297650954</td>
+                                                        <td>Минск</td>
+                                                        <td>2024-08-12T15:50:17.082410</td>
+                                                        <td id="tooltip-container0">
+
+
+                                                            <a href="javascript:void(0);" class="me-3 text-primary arrow" data-bs-container="#tooltip-container0" data-bs-toggle="tooltip" data-bs-placement="top" title="" data-bs-original-title="Перейти">
+                                                                <i class="mdi mdi-arrow-right font-size-18"></i>
+                                                            </a>
+                                                            <a href="javascript:void(0);" class="me-3 text-primary edit" data-bs-container="#tooltip-container0" data-bs-toggle="tooltip" data-bs-placement="top" title="" data-bs-original-title="Редактировать">
+                                                                <i class="mdi mdi-pencil font-size-18"></i>
+                                                            </a>
+                                                            <a href="javascript:void(0);" class="text-danger delete" data-bs-container="#tooltip-container0" data-bs-toggle="tooltip" data-bs-placement="top" title="" data-bs-original-title="Удалить">
+                                                                <i class="mdi mdi-trash-can font-size-18"></i>
+                                                            </a>
+
+
+
+                                                        </td>
+
+                                                    </tr><tr class="even">
+
+                                                        <td class="sorting_1 dtr-control">Анна Скачкова</td>
+                                                        <td>asy1@gmail.com</td>
+                                                        <td>+375297650954</td>
+                                                        <td>Минск</td>
+                                                        <td>2024-08-12T16:01:41.697487</td>
+                                                        <td id="tooltip-container0">
+
+
+                                                            <a href="javascript:void(0);" class="me-3 text-primary arrow" data-bs-container="#tooltip-container0" data-bs-toggle="tooltip" data-bs-placement="top" title="" data-bs-original-title="Перейти">
+                                                                <i class="mdi mdi-arrow-right font-size-18"></i>
+                                                            </a>
+                                                            <a href="javascript:void(0);" class="me-3 text-primary edit" data-bs-container="#tooltip-container0" data-bs-toggle="tooltip" data-bs-placement="top" title="" data-bs-original-title="Редактировать">
+                                                                <i class="mdi mdi-pencil font-size-18"></i>
+                                                            </a>
+                                                            <a href="javascript:void(0);" class="text-danger delete" data-bs-container="#tooltip-container0" data-bs-toggle="tooltip" data-bs-placement="top" title="" data-bs-original-title="Удалить">
+                                                                <i class="mdi mdi-trash-can font-size-18"></i>
+                                                            </a>
+
+
+
+                                                        </td>
+
+                                                    </tr><tr class="odd">
+
+                                                        <td class="sorting_1 dtr-control">Анна Скачкова</td>
+                                                        <td>assd1cny@gmail.com</td>
+                                                        <td>+375297650954</td>
+                                                        <td>Минск</td>
+                                                        <td>2024-08-12T16:08:47.875503</td>
+                                                        <td id="tooltip-container0">
+
+
+                                                            <a href="javascript:void(0);" class="me-3 text-primary arrow" data-bs-container="#tooltip-container0" data-bs-toggle="tooltip" data-bs-placement="top" title="" data-bs-original-title="Перейти">
+                                                                <i class="mdi mdi-arrow-right font-size-18"></i>
+                                                            </a>
+                                                            <a href="javascript:void(0);" class="me-3 text-primary edit" data-bs-container="#tooltip-container0" data-bs-toggle="tooltip" data-bs-placement="top" title="" data-bs-original-title="Редактировать">
+                                                                <i class="mdi mdi-pencil font-size-18"></i>
+                                                            </a>
+                                                            <a href="javascript:void(0);" class="text-danger delete" data-bs-container="#tooltip-container0" data-bs-toggle="tooltip" data-bs-placement="top" title="" data-bs-original-title="Удалить">
+                                                                <i class="mdi mdi-trash-can font-size-18"></i>
+                                                            </a>
+
+
+
+                                                        </td>
+
+                                                    </tr><tr class="even">
+
+                                                        <td class="sorting_1 dtr-control">Анна Скачкова</td>
+                                                        <td>anhgt1fhyty@gmail.com</td>
+                                                        <td>+375297650954</td>
+                                                        <td>Минск</td>
+                                                        <td>2024-08-12T16:09:49.870529</td>
+                                                        <td id="tooltip-container0">
+
+
+                                                            <a href="javascript:void(0);" class="me-3 text-primary arrow" data-bs-container="#tooltip-container0" data-bs-toggle="tooltip" data-bs-placement="top" title="" data-bs-original-title="Перейти">
+                                                                <i class="mdi mdi-arrow-right font-size-18"></i>
+                                                            </a>
+                                                            <a href="javascript:void(0);" class="me-3 text-primary edit" data-bs-container="#tooltip-container0" data-bs-toggle="tooltip" data-bs-placement="top" title="" data-bs-original-title="Редактировать">
+                                                                <i class="mdi mdi-pencil font-size-18"></i>
+                                                            </a>
+                                                            <a href="javascript:void(0);" class="text-danger delete" data-bs-container="#tooltip-container0" data-bs-toggle="tooltip" data-bs-placement="top" title="" data-bs-original-title="Удалить">
+                                                                <i class="mdi mdi-trash-can font-size-18"></i>
+                                                            </a>
+
+
+
+                                                        </td>
+
+                                                    </tr></tbody>
+                                                </table></div></div><div class="row"><div class="col-sm-12 col-md-5"><div class="dataTables_info" id="DataTables_Table_0_info" role="status" aria-live="polite">Showing 1 to 10 of 13 entries</div></div><div class="col-sm-12 col-md-7"><div class="dataTables_paginate paging_simple_numbers" id="DataTables_Table_0_paginate"><ul class="pagination"><li class="paginate_button page-item previous disabled" id="DataTables_Table_0_previous"><a href="#" aria-controls="DataTables_Table_0" data-dt-idx="0" tabindex="0" class="page-link">Previous</a></li><li class="paginate_button page-item active"><a href="#" aria-controls="DataTables_Table_0" data-dt-idx="1" tabindex="0" class="page-link">1</a></li><li class="paginate_button page-item "><a href="#" aria-controls="DataTables_Table_0" data-dt-idx="2" tabindex="0" class="page-link">2</a></li><li class="paginate_button page-item next" id="DataTables_Table_0_next"><a href="#" aria-controls="DataTables_Table_0" data-dt-idx="3" tabindex="0" class="page-link">Next</a></li></ul></div></div></div></div>
+
+                                            </div>
+                                        </div>-->
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+
+
+                 <!--   <button type="button" class="btn btn-primary btn-sm waves-effect waves-light" data-bs-toggle="modal"
+                            data-bs-target=".bs-example-modal-xl">Modal demo
+                    </button>
+                    <div id="myModal" class="modal fade bs-example-modal-xl" tabindex="-1"
+                         aria-labelledby="myExtraLargeModalLabel"
+                         style="display: none;" aria-hidden="true">
+                        <div class="modal-dialog modal-xl">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title mt-0" id="myExtraLargeModalLabel">Профиль</h5>
+                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">
+
+                                    </button>
+                                </div>
+                                <div class="modal-body">
+
+
+                                    <div class="row">
+                                        <div class="col-md-8 mx-auto">
+                                            <div class="card">
+                                                <div class="card-body">
+                                                    <h4 class="header-title">Добавление пользователя</h4>
+                                                    <br>
+
+                                                    <form class="custom-validation" action="/admin/updateAdminData"
+                                                          method="POST" enctype="multipart/form-data" id="sendRequestForm">
+                                                        <div class="mb-3">
+                                                            <label>Имя</label>
+                                                            <input type="text" class="form-control"
+
+                                                                   name="firstNameAdmin" id="firstNameAdmin">
+                                                            <div class="error-message" id="firstNameAdminError"></div>
+                                                        </div>
+                                                        <div class="mb-3">
+                                                            <label>Фамилия</label>
+                                                            <div>
+                                                                <input type="text" class="form-control"
+
+                                                                       name="lastNameAdmin" id="lastNameAdmin">
+                                                            </div>
+                                                            <div class="error-message" id="lastNameAdminError"></div>
+                                                        </div>
+                                                        <div class="mb-3">
+                                                            <label>Почта</label>
+                                                            <div>
+                                                                <input type="email" class="form-control"
+                                                                        id="emailAdmin" name="emailAdmin">
+                                                            </div>
+                                                            <div class="error-message" id="emailAdminError"></div>
+                                                        </div>
+                                                        <div class="mb-3">
+                                                            <label>Роль</label>
+                                                            <div>
+                                                                <select class="form-control select2" name="role">
+                                                                    <option ></option>
+                                                                    <option value="USER">USER</option>
+                                                                    <option value="CONTENT-MANAGER">CONTENT-MANAGER</option>
+                                                                    <option value="ADMIN">ADMIN</option>
+                                                                </select>
+                                                            </div>
+                                                        </div>
+
+                                                        <div class="mb-3">
+                                                            <label for="formFile" class="form-label">Загрузить
+                                                                изображение</label>
+                                                            <input class="form-control" type="file" id="formFile" name="image"
+                                                                   accept="image/*">
+                                                        </div>
+
+
+                                                        <div class="mb-0">
+                                                            <div>
+                                                                <button type="button" onclick="validateFormAddUser()"
+                                                                        class="btn btn-primary waves-effect waves-light me-1">
+                                                                    Сохранить изменения
+                                                                </button>
+
+                                                            </div>
+                                                        </div>
+                                                    </form>
+
+                                                </div>
+                                            </div>
+                                        </div> &lt;!&ndash; end col &ndash;&gt;
+
+
+                                    </div>
+
+                                </div>
+                            </div>&lt;!&ndash; /.modal-content &ndash;&gt;
+                        </div>&lt;!&ndash; /.modal-dialog &ndash;&gt;
+                    </div>
+-->
+
+
+                      <!-- sample modal content -->
+                    <div id="myModalAddUser" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                        <div class="modal-dialog">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title mt-0" id="myModalLabel">Добавление пользователя</h5>
+                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">
+
+                                    </button>
+                                </div>
+                                <div class="modal-body">
+
+
+                                    <form class="custom-validation" action="/admin/ecommerce-customer-adding"
+                                          method="POST" enctype="multipart/form-data" id="sendRequestForm">
+                                         <!-- Создаем строку для двух полей -->
+                                        <div class="mb-3">
+                                            <label for="firstNameUser" class="form-label">Имя пользователя</label>
+                                            <input type="text" class="form-control" id="firstNameUser" name="firstNameUser" placeholder="Имя пользователя" required>
+                                            <div class="error-message" id="firstNameUserError"></div>
+                                        </div>
+                                        <div class="mb-3">
+                                            <label for="lastNameUser" class="form-label">Фамилия пользователя</label>
+                                            <input type="text" class="form-control" id="lastNameUser" name="lastNameUser" placeholder="Фамилия пользователя" required>
+                                            <div class="error-message" id="lastNameUserError"></div>
+                                        </div>
+
+                                        <div class="mb-3">
+                                            <div class="mb-3">
+                                                <label for="emailUser" class="form-label">Почта</label>
+                                                <input type="email" class="form-control" id="emailUser" name="emailUser" placeholder="Почта" required>
+                                                <div class="error-message" id="emailUserError"></div>
+                                            </div>
+                                        </div>
+                                        <div class="mb-3">
+                                            <div class="mb-3">
+                                                <label for="phoneNumberUser" class="form-label">Номер телефона</label>
+                                                <input type="text" class="form-control" id="phoneNumberUser" name="phoneNumberUser" placeholder="Номер телефона" required>
+                                                <div class="error-message" id="phoneNumberUserError"></div>
+                                            </div>
+                                        </div>
+                                        <div class="mb-3">
+                                            <div class="mb-3">
+                                                <label for="cityUser" class="form-label">Город</label>
+                                                <input type="text" class="form-control" id="cityUser" name="cityUser" placeholder="Город" required>
+                                                <div class="error-message" id="cityUserError"></div>
+                                            </div>
+                                        </div>
+                                        <div class="md-3">
+                                            <label for="passwordUser" class="form-label">Пароль</label>
+                                            <input type="password" class="form-control" id="passwordUser" name="passwordUser" placeholder="Пароль" required>
+                                            <div class="error-message" id="passwordUserError"></div>
+
+                                        </div>
+
+                                        <div class="mb-0">
+                                            <div>
+                                                <button type="button" onclick="validateFormAddingUser()"
+                                                        class="btn btn-primary waves-effect waves-light me-1">
+                                                    Сохранить
+                                                </button>
+
+                                            </div>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div><!-- /.modal-content -->
+                        </div><!-- /.modal-dialog -->
+                    </div><!-- /.modal -->
+
+
+                </div>
+
+                <footer class="footer">
+                    <div class="container-fluid">
+                        <div class="row">
+                        </div>
+                    </div>
+                </footer>
+            </div>
+        </div>
+
+        <div class="right-bar">
+            <div data-simplebar class="h-100">
+                <div class="rightbar-title d-flex align-items-center px-3 py-4">
+                    <h5 class="m-0 me-2">Settings</h5>
+                    <a href="javascript:void(0);" class="right-bar-toggle ms-auto">
+                        <i class="mdi mdi-close noti-icon"></i>
+                    </a>
+                </div>
+
+                <hr class="mt-0" />
+                <h6 class="text-center mb-0">Choose Layouts</h6>
+
+                <div class="p-4">
+                    <div class="mb-2">
+                        <img src="../assets/images/layouts/layout-1.jpg" class="img-fluid img-thumbnail" alt="layout-1">
+                    </div>
+
+                    <div class="form-check form-switch mb-3">
+                        <input class="form-check-input theme-choice" type="checkbox" id="light-mode-switch" checked>
+                        <label class="form-check-label" for="light-mode-switch">Light Mode</label>
+                    </div>
+    
+                    <div class="mb-2">
+                        <img src="../assets/images/layouts/layout-2.jpg" class="img-fluid img-thumbnail" alt="layout-2">
+                    </div>
+                    <div class="form-check form-switch mb-3">
+                        <input class="form-check-input theme-choice" type="checkbox" id="dark-mode-switch" data-bsStyle="../assets/css/bootstrap-dark.min.css" data-appStyle="../assets/css/app-dark.min.css">
+                        <label class="form-check-label" for="dark-mode-switch">Dark Mode</label>
+                    </div>
+    
+                    <div class="mb-2">
+                        <img src="../assets/images/layouts/layout-3.jpg" class="img-fluid img-thumbnail" alt="layout-3">
+                    </div>
+                    <div class="form-check form-switch mb-5">
+                        <input class="form-check-input theme-choice" type="checkbox" id="rtl-mode-switch" data-appStyle="../assets/css/app-rtl.min.css">
+                        <label class="form-check-label" for="rtl-mode-switch">RTL Mode</label>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="rightbar-overlay"></div>
+
+        <!-- JAVASCRIPT -->
+        <script src="../assets/libs/jquery/jquery.min.js"></script>
+        <script src="../assets/libs/bootstrap/js/bootstrap.bundle.min.js"></script>
+        <script src="../assets/libs/metismenu/metisMenu.min.js"></script>
+        <script src="../assets/libs/simplebar/simplebar.min.js"></script>
+        <script src="../assets/libs/node-waves/waves.min.js"></script>
+
+        <!-- Required datatable js -->
+        <script src="../assets/libs/datatables.net/js/jquery.dataTables.min.js"></script>
+        <script src="../assets/libs/datatables.net-bs4/js/dataTables.bootstrap4.min.js"></script>
+        
+        <!-- Responsive examples -->
+        <script src="../assets/libs/datatables.net-responsive/js/dataTables.responsive.min.js"></script>
+        <script src="../assets/libs/datatables.net-responsive-bs4/js/responsive.bootstrap4.min.js"></script>
+
+        <script src="../assets/js/pages/ecommerce-datatables.init.js"></script>
+
+        <script src="../assets/js/pages/table-editable.init.js"></script>
+        <script src="../assets/js/app.js"></script>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const editButtons = document.querySelectorAll('.editable .edit');
+            editButtons.forEach(function(button) {
+                button.addEventListener('click', function() {
+                    const row = this.closest('tr');
+                    const cells = row.querySelectorAll('td:not(:last-child)');
+                    cells.forEach(function(cell) {
+                        cell.setAttribute('contenteditable', 'true');
+                        cell.classList.add('editable-cell');
+                    });
+
+                    this.classList.add('d-none'); // скрываем кнопку "Edit"
+
+                    // создаем и добавляем кнопку "Save"
+                    const saveButton = document.createElement('a');
+                    saveButton.href = 'javascript:void(0);';
+                    saveButton.className = 'me-3 text-primary save';
+                    saveButton.innerHTML = '<i class="mdi mdi-check font-size-18"></i>';
+                    this.parentNode.insertBefore(saveButton, this);
+
+                    saveButton.addEventListener('click', function() {
+                        const rowData = {};
+                        cells.forEach(function(cell) {
+                            cell.removeAttribute('contenteditable');
+                            cell.classList.remove('editable-cell');
+                            const field = cell.getAttribute('data-field');
+                            rowData[field] = cell.innerText;
+                        });
+
+                        button.classList.remove('d-none'); // показываем кнопку "Edit"
+                        this.remove(); // удаляем кнопку "Save"
+
+                        // Отправка данных на сервер
+                        const rowId = row.getAttribute('data-id');
+                        rowData['id'] = rowId;
+                        fetch('/api/customers', {
+                            method: 'PUT',
+                            headers: {
+                                'Content-Type': 'application/json',
+                            },
+                            body: JSON.stringify(rowData),
+                        })
+                            .then(response => response.json())
+                            .then(data => {
+                                if (data.success) {
+                                    alert('Изменения успешно сохранены');
+                                } else {
+                                    alert('Ошибка при сохранении изменений');
+                                }
+                            })
+                            .catch(error => {
+                                console.error('Ошибка:', error);
+                                alert('Ошибка при отправке данных на сервер');
+                            });
+                    });
+                });
+            });
+        });
+
+
+    </script>
+        <script>
+            function validateFormAddingUser() {
+                // Устанавливаем флаги валидации на начальное значение (false)
+                var isFirstNameValid = false;
+                var isLastNameValid = false;
+                var isPhoneNumberValid = false;
+                var isCityValid = false;
+                var isEmailValid = false;
+                var isPasswordValid = false;
+
+                function setValidity(element, isValid, errorMessage) {
+                    var errorId = element.id + "Error";
+                    var errorElement = document.getElementById(errorId);
+
+                    if (isValid) {
+                        element.classList.remove("invalid");
+                        element.classList.add("valid");
+                        errorElement.innerHTML = "";
+                    } else {
+                        element.classList.remove("valid");
+                        element.classList.add("invalid");
+                        errorElement.innerHTML = errorMessage || "This field is required";
+                    }
+                    return isValid;
+                }
+
+                function isEmpty(value) {
+                    return value.trim() === "";
+                }
+
+                // Проводим валидацию для каждого поля
+                isFirstNameValid = setValidity(document.getElementById("firstNameUser"), !isEmpty(document.getElementById("firstNameUser").value) && /^[A-Za-zА-Яа-яЁё]+$/u.test(document.getElementById("firstNameUser").value), "Пожалуйста, введите корректно имя");
+                isLastNameValid = setValidity(document.getElementById("lastNameUser"), !isEmpty(document.getElementById("lastNameUser").value) && /^[A-Za-zА-Яа-яЁё]+$/u.test(document.getElementById("lastNameUser").value), "Пожалуйста, введите корректно фамилию");
+                isPhoneNumberValid = setValidity(document.getElementById("phoneNumberUser"), !isEmpty(document.getElementById("phoneNumberUser").value) && /^[+]?[0-9\s-()]{7,15}$/.test(document.getElementById("phoneNumberUser").value), "Пожалуйста, введите корректно номер телефона");
+                isCityValid = setValidity(document.getElementById("cityUser"), !isEmpty(document.getElementById("cityUser").value) && /^[A-Za-zА-Яа-яЁё]+$/u.test(document.getElementById("cityUser").value), "Пожалуйста, введите корректно город");
+                isEmailValid = setValidity(document.getElementById("emailUser"), !isEmpty(document.getElementById("emailUser").value) && /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(document.getElementById("emailUser").value), "Пожалуйста, введите корректно почту");
+                isPasswordValid = setValidity(document.getElementById("passwordUser"), !isEmpty(document.getElementById("passwordUser").value) && /^[a-zA-Zа-яА-Я0-9]{8,16}$/.test(document.getElementById("passwordUser").value), "Пожалуйста, введите корректно пароль");
+
+                // Отправка формы, если все поля прошли валидацию
+                if (isFirstNameValid && isLastNameValid && isPhoneNumberValid && isCityValid && isEmailValid && isPasswordValid) {
+                    document.getElementById("sendRequestForm").submit();
+                }
+            }
+        </script>
+
+    </body>
+
+</html>

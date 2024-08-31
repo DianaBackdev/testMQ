@@ -1,0 +1,144 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+
+    
+    <meta charset="utf-8" />
+    <title>Register page | Admin & Dashboard Template</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta content="Premium Multipurpose Admin & Dashboard Template" name="description" />
+    <meta content="Themesdesign" name="author" />
+    <!-- App favicon -->
+    <link rel="shortcut icon" href="../assets/images/favicon.ico">
+
+    <!-- Bootstrap Css -->
+    <link href="../assets/css/bootstrap.min.css" id="bootstrap-style" rel="stylesheet" type="text/css" />
+    <!-- Icons Css -->
+    <link href="../assets/css/icons.min.css" rel="stylesheet" type="text/css" />
+    <!-- App Css-->
+    <link href="../assets/css/app.min.css" id="app-style" rel="stylesheet" type="text/css" />
+
+<style>
+    .error-message {
+        font-size: 0.675rem; /* Немного меньше стандартного размера шрифта */
+        color: #b03a2e; /* Бордовый цвет текста */
+        margin-top: 0.25rem; /* Небольшой отступ сверху */
+        margin-bottom: 0; /* Убираем отступ снизу */
+        display: block; /* Обеспечивает, что сообщение занимает новую строку */
+        padding: 0; /* Убираем внутренние отступы */
+        line-height: 1.2; /* Немного увеличиваем межстрочный интервал для удобства чтения */
+    }
+
+</style>
+
+</head>
+
+
+<body class="authentication-bg bg-primary">
+    <div class="home-center">
+        <div class="home-desc-center">
+            <div class="container">
+                <div class="home-btn"><a href="/" class="text-white router-link-active"><i
+                            class="fas fa-home h2"></i></a></div>
+                <div class="row justify-content-center">
+                    <div class="col-md-8 col-lg-6 col-xl-5">
+                        <div class="card">
+                            <div class="card-body">
+                                <div class="px-2 py-3">
+                                    <div class="text-center">
+                                        <a href="index-general.html">
+                                            <img src="../assets/images/logoM&Q-light.png" height="52" alt="logo">
+                                        </a>
+                                        <h5 class="text-primary mb-2 mt-4">Регистрация</h5>
+                                    </div>
+                                    <form class="form-horizontal" action="/registry" method="post" id="sendRequestForm">
+                                        <div class="mb-3">
+                                            <label for="emailAdmin">Почта</label>
+                                            <input type="email" class="form-control" id="emailAdmin" name="emailAdmin" placeholder="Введите почту" required>
+                                            <div class="error-message" id="emailAdminError"></div>
+                                            <div class="error-message" th:if="${error != null}" th:text="${error}"></div>
+                                        </div>
+                                        <div class="mb-3">
+
+                                            <label for="firstNameAdmin">Имя пользователя</label>
+                                            <input type="text" class="form-control" id="firstNameAdmin" name="firstNameAdmin" placeholder="Введите имя пользователя" required>
+                                            <div class="error-message" id="firstNameAdminError"></div>
+                                        </div>
+                                        <div class="mb-3">
+
+                                            <label for="lastNameAdmin">Фамилия пользователя</label>
+                                            <input type="text" class="form-control" id="lastNameAdmin" name="lastNameAdmin" placeholder="Введите имя пользователя" required>
+                                            <div class="error-message" id="lastNameAdminError"></div>
+                                        </div>
+                                        <div class="mb-3">
+
+                                            <label for="passwordAdmin">Пароль</label>
+                                            <input type="password" class="form-control" id="passwordAdmin" name="passwordAdmin" placeholder="Введите пароль" required>
+                                            <div class="error-message" id="passwordAdminError"></div>
+                                        </div>
+                                        <div class="mt-4">
+                                            <button class="btn btn-primary w-100 waves-effect waves-light" type="button" onclick="validateFormAdmin()">Зарегистрироваться</button>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="mt-5 text-center text-white">
+                            <p>Уже есть аккаунт ? <a href="/login" class="fw-bold text-white"> Авторизуйтесь </a> </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- End Log In page -->
+    </div>
+
+    <!-- JAVASCRIPT -->
+    <script src="../assets/libs/jquery/jquery.min.js"></script>
+    <script src="../assets/libs/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="../assets/libs/metismenu/metisMenu.min.js"></script>
+    <script src="../assets/libs/simplebar/simplebar.min.js"></script>
+    <script src="../assets/libs/node-waves/waves.min.js"></script>
+    <script src="../assets/js/app.js"></script>
+    <script>function validateFormAdmin() {
+        // Устанавливаем флаги валидации на начальное значение (false)
+        var isFirstNameValid = false;
+        var isLastNameValid = false;
+        var isEmailValid = false;
+        var isPasswordAdminValid = false;
+
+        function setValidity(element, isValid, errorMessage) {
+            var errorId = element.id + "Error";
+            var errorElement = document.getElementById(errorId);
+
+            if (isValid) {
+                element.classList.remove("invalid");
+                element.classList.add("valid");
+                errorElement.innerHTML = "";
+            } else {
+                element.classList.remove("valid");
+                element.classList.add("invalid");
+                errorElement.innerHTML = errorMessage || "This field is required";
+            }
+            return isValid;
+        }
+
+        function isEmpty(value) {
+            return value.trim() === "";
+        }
+
+        // Проводим валидацию для каждого поля
+        isFirstNameValid = setValidity(document.getElementById("firstNameAdmin"), !isEmpty(document.getElementById("firstNameAdmin").value) && /^[A-Za-zА-Яа-яЁё]+$/u.test(document.getElementById("firstNameAdmin").value), "Пожалуйста, введите корректно имя");
+        isLastNameValid = setValidity(document.getElementById("lastNameAdmin"), !isEmpty(document.getElementById("lastNameAdmin").value) && /^[A-Za-zА-Яа-яЁё]+$/u.test(document.getElementById("lastNameAdmin").value), "Пожалуйста, введите корректно фамилию");
+        isEmailValid = setValidity(document.getElementById("emailAdmin"), !isEmpty(document.getElementById("emailAdmin").value) && /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(document.getElementById("emailAdmin").value), "Пожалуйста, введите корректно почту");
+        isPasswordAdminValid = setValidity(document.getElementById("passwordAdmin"), !isEmpty(document.getElementById("passwordAdmin").value) && /^[a-zA-Zа-яА-Я0-9]{8,16}$/.test(document.getElementById("passwordAdmin").value), "Пожалуйста, введите корректно пароль");
+
+        // Отправка формы, если все поля прошли валидацию
+        if (isFirstNameValid && isEmailValid && isLastNameValid && isPasswordAdminValid) {
+            document.getElementById("sendRequestForm").submit();
+        }
+    }</script>
+</body>
+</html>
